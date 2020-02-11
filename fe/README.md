@@ -20,5 +20,5 @@ npm run build
 npm run lint
 ```
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+### Element-ui
+采用按需注册，加入新组建时，不要忘了去element.js去注册下
