@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     saveMd (value, render) {
-      console.log('this is render' + render)
+    //   console.log('this is render' + render)
       window.sessionStorage.setItem('blog', render)
     }
   }
