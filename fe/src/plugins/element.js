@@ -4,7 +4,7 @@ import {
   Menu, MenuItem, MenuItemGroup, Submenu,
   Container, Header, Main, Aside,
   Breadcrumb, BreadcrumbItem, Card, Drawer,
-  Radio, RadioGroup
+  Radio, RadioGroup, Avatar, Tag
 } from 'element-ui'
 
 Vue.use(Button)
@@ -25,4 +25,6 @@ Vue.use(Card)
 Vue.use(Drawer)
 Vue.use(Radio)
 Vue.use(RadioGroup)
+Vue.use(Avatar)
+Vue.use(Tag)
 Vue.prototype.$message = Message

@@ -28,7 +28,7 @@
           <el-input v-model="registerForm.mail"></el-input>
         </el-form-item>
         <el-form-item label="入学年份" prop="grade">
-          <el-input v-model.number="registerForm.grade" type='number'></el-input>
+          <el-input v-model.number="registerForm.grade" type="number"></el-input>
         </el-form-item>
         <el-form-item label="专业" prop="major">
           <el-input v-model="registerForm.major"></el-input>
@@ -78,7 +78,7 @@ export default {
         name: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
         password: [{ validator: validatePass, trigger: 'blur' }],
         checkPass: [{ validator: validatePass2, trigger: 'blur' }],
-        major: [{ required: true, message: '请输入姓名', trigger: 'blur' }],
+        major: [{ required: true, message: '请输入专业', trigger: 'blur' }],
         grade: [
           { required: true, message: '年级不能为空' },
           { type: 'number', message: '必须输入年份' }
@@ -93,6 +93,9 @@ export default {
         ]
       }
     }
+  },
+  methods: {
+    register() {}
   }
 }
 </script>

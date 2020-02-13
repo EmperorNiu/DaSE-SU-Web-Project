@@ -50,7 +50,7 @@ export default {
   },
   methods: {
     resetForm () {
-      this.$refs.loginFormRef.resetFields()
+      this.$router.push('/register')
     },
     login () {
       this.$refs.loginFormRef.validate(async valid => {
