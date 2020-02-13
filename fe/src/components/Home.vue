@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div v-html="ss"></div>
+    <div v-html="ss" v-contextmenu:contextmenu></div>
     <el-drawer
       title="我是标题"
       :visible.sync="drawer"
@@ -10,6 +10,12 @@
       <span>我来啦!</span>
       <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
     </el-drawer>
+
+    <v-contextmenu ref="contextmenu" :theme="theme">
+      <v-contextmenu-item @click="handleClick">菜单1</v-contextmenu-item>
+      <v-contextmenu-item @click="handleClick">菜单2</v-contextmenu-item>
+      <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
+    </v-contextmenu>
   </div>
 </template>
 
@@ -49,7 +55,7 @@ export default {
     this.ss = blog
   },
   destroyed () {
-    // highlighter.stop()s
+    // highlighter.stop()
   },
   data () {
     return {
@@ -99,6 +105,9 @@ export default {
       })
       console.log(stores)
       window.sessionStorage.setItem('hl', stores)
+    },
+    handleClick (vm, event) {
+      alert(`「${vm.$slots.default[0].text}」被点击啦！`)
     }
   }
 }

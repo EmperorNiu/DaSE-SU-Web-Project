@@ -20,7 +20,7 @@
                 </el-form-item>
                 <el-form-item class="btns">
                     <el-button type="primary" round @click="login">登录</el-button>
-                    <el-button type="cancel" round @click="resetForm">重置</el-button>
+                    <el-button type="cancel" round @click="resetForm">注册</el-button>
                     <el-button type="warning" circle>忘记密码</el-button>
                 </el-form-item>
             </el-form>
