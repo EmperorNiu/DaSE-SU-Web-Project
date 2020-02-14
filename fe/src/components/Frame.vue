@@ -16,7 +16,14 @@
         router
       >
         <el-menu-item index="/home">Home</el-menu-item>
-        <el-menu-item index="/blog">博客区</el-menu-item>
+        <el-submenu index="blog">
+          <template slot="title">博客区</template>
+          <el-menu-item index="/blog">看博客</el-menu-item>
+          <el-menu-item index="/writeblog">写博客</el-menu-item>
+          <el-menu-item index="2-3">稍后看</el-menu-item>
+          <el-menu-item index="2-4">我的博客</el-menu-item>
+        </el-submenu>
+        <!-- <el-menu-item index="/blog">博客区</el-menu-item> -->
         <el-menu-item index="/achievement">风采区</el-menu-item>
         <el-menu-item index="/activity">学生会活动</el-menu-item>
         <el-menu-item index="/user">我的</el-menu-item>
