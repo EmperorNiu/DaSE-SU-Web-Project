@@ -4,7 +4,16 @@ import router from './router'
 import './plugins/element.js'
 import './assets/css/global.css'
 import './assets/fonts/iconfont.css'
+import 'katex/dist/katex.min.css'
 import axios from 'axios'
+// md编辑器插件
+import mavonEditor from 'mavon-editor'
+import 'mavon-editor/dist/css/index.css'
+// 右键自定义菜单插件
+import contentmenu from 'v-contextmenu/dist/index.js'
+import 'v-contextmenu/dist/index.css'
+Vue.use(mavonEditor)
+Vue.use(contentmenu)
 Vue.config.productionTip = false
 
 // 配置请求根路径
