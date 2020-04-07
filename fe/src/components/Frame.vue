@@ -23,8 +23,11 @@
           <el-menu-item index="2-3">稍后看</el-menu-item>
           <el-menu-item index="2-4">我的博客</el-menu-item>
         </el-submenu>
-        <!-- <el-menu-item index="/blog">博客区</el-menu-item> -->
-        <el-menu-item index="/achievement">风采区</el-menu-item>
+        <el-submenu index="achievement">
+          <template slot="title">风采区</template>
+          <el-menu-item index="/projlist">项目展示</el-menu-item>
+          <el-menu-item index="/memlist">校友会</el-menu-item>
+        </el-submenu>
         <el-menu-item index="/activity">学生会活动</el-menu-item>
         <el-menu-item index="/user">我的</el-menu-item>
         <el-submenu index="5">
