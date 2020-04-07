@@ -8,7 +8,12 @@ import WriteBlog from '../components/Blog/WriteBlog.vue'
 import Home from '../components/Home.vue'
 import User from '../components/User.vue'
 import Activity from '../components/Activity.vue'
-import Achievement from '../components/Achievement.vue'
+import Projlist from '../components/Achievement/Projlist.vue'
+import Memlist from '../components/Achievement/Memlist.vue'
+import Projinfo from '../components/Achievement/Projinfo.vue'
+import Meminfo from '../components/Achievement/Meminfo.vue'
+import comment from '../components/subcomponents/comment.vue'
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -25,7 +30,11 @@ const routes = [
       { path: '/writeblog', component: WriteBlog },
       { path: '/user', component: User },
       { path: '/activity', component: Activity },
-      { path: '/achievement', component: Achievement }
+      { path: '/projlist', component: Projlist },
+      { path: '/memlist', component: Memlist },
+      { path: '/projinfo/:id', component: Projinfo },
+      { path: '/meminfo/:id', component: Meminfo },
+      { path: '/comment/:id', component: comment }
     ]
   }
 ]

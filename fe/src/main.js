@@ -6,6 +6,9 @@ import './assets/css/global.css'
 import './assets/fonts/iconfont.css'
 import 'katex/dist/katex.min.css'
 import axios from 'axios'
+import './lib/mui/css/mui.min.css'
+import './lib/mui/css/icons-extra.css'
+
 // md编辑器插件
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
