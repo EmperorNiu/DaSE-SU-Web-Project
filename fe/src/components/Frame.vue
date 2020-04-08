@@ -27,6 +27,7 @@
           <template slot="title">风采区</template>
           <el-menu-item index="/projlist">项目展示</el-menu-item>
           <el-menu-item index="/memlist">校友会</el-menu-item>
+          <el-menu-item index="/memlist">展示</el-menu-item>
         </el-submenu>
         <el-menu-item index="/activity">学生会活动</el-menu-item>
         <el-menu-item index="/user">我的</el-menu-item>
