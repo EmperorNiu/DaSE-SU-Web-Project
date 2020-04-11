@@ -1,7 +1,8 @@
 package models
 
 import (
-	_"github.com/jinzhu/gorm"
+	"github.com/jinzhu/gorm"
+	_ "github.com/jinzhu/gorm"
 )
 
 type Auth struct {
@@ -12,6 +13,10 @@ type Auth struct {
 	StudentId string `json:"student_id" form:"student_id"`
 	Mail string `json:"mail" form:"mail"`
 	Major string `json:"major" form:"major"`
+}
+
+type Token struct {
+	Token string `header:"Token"`
 }
 
 
@@ -30,4 +35,10 @@ func (user *Auth) Query(name string) error {
 
 func (user *Auth) Update(attribute,value string) {
 	db.Model(user).Update(attribute,value)
+}
+
+func (token *Token) Query() bool{
+	var user Auth
+	err := db.Where("token = ?",token.Token).First(&user).Error
+	return gorm.IsRecordNotFoundError(err)
 }

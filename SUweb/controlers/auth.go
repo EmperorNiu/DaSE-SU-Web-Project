@@ -1,10 +1,10 @@
 package controlers
 
 import (
+	"SUweb/e"
 	"SUweb/models"
 	"crypto/md5"
 	"fmt"
-	"gin2/e"
 	"github.com/gin-gonic/gin"
 	"io"
 	"net/http"
@@ -25,10 +25,10 @@ func Register(c *gin.Context) {
 
 func Login(c *gin.Context) {
 	var user,_user models.Auth
-	if err := c.ShouldBind(&user); err != nil {
+	if err := c.ShouldBindJSON(&user); err != nil {
 		c.JSON(http.StatusBadRequest,gin.H{"message":err.Error()})
 	} else if err := _user.Query(user.Username); err!=nil || _user.Password != user.Password {
-		c.JSON(http.StatusBadRequest,gin.H{"message":err.Error()})
+		c.JSON(http.StatusBadGateway,gin.H{"message":e.GetMsg(e.ERROR_PASSWORD)})
 	} else {
 		h := md5.New()
 		io.WriteString(h,strconv.FormatInt(time.Now().Unix(),10))

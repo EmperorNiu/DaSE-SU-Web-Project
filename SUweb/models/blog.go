@@ -3,7 +3,7 @@ package models
 import "time"
 
 type Blog struct {
-	BlogId int `gorm: "primary_key" json: "id"`
+	BlogId int `gorm: "primary_key" json: "blog_id"`
 	CreatedAt time.Time `json:"created_at"`
 	Title string `json:"title"`
 	AuthorId int `json:"author_id"`
@@ -43,5 +43,5 @@ func QueryBlogList(blogs *[]Blog) error {
 }
 
 func (blog *Blog) QueryBlog(id string) error {
-
+	return db.Where("blog_id = ?",id).First(&blog).Error
 }

@@ -1,5 +1,7 @@
 package models
 
+import "time"
+
 type Project struct {
 	ProjectId uint `gorm:"primary_key" json:"project_id" gorm:"auto-increment"`
 	ProjectName string `json:"project_name" form:"project_name" binding:"required"`
@@ -30,7 +32,7 @@ type ProjectComment struct {
 	AuthId int
 	Content string `json:"content"`
 	ProjectId int `json:"project_id" gorm:"ForergnKey:ProjectId"`
-
+	CreatedAt time.Time `json:"created_at"`
 }
 
 func QueryProjectList(projects *[]Project) error {
@@ -64,6 +66,6 @@ func (comment *ProjectComment) CreateComment() error {
 	return db.Create(&comment).Error
 }
 
-func QueryComments(comments *[]ProjectComment,project_id int) error {
+func QueryComments(comments *[]ProjectComment,project_id string) error {
 	return db.Where("project_id = ?",project_id).Find(&comments).Error
 }
