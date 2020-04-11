@@ -35,6 +35,7 @@ func InitRouter() *gin.Engine {
 	{
 		blog.GET("getBlogList",controlers.GetBlogList)
 		blog.GET("getBlog",controlers.GetBlog)
+		blog.POST("publishBlog",controlers.PublishBlog)
 	}
 	return router
 }

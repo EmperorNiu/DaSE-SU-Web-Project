@@ -13,8 +13,6 @@
     </div>
     </div>-->
     <blog-intro></blog-intro>
-    <blog-intro></blog-intro>
-    <blog-intro></blog-intro>
   </div>
 </template>
 

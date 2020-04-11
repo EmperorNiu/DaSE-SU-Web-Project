@@ -109,7 +109,7 @@ export default {
 .register-container {
   background-color: rgb(72, 72, 72);
   height: 100%;
-  background-image: url(../assets/starry-sky-1654074_1920.jpg);
+  background-image: url("../assets/starry-sky-1654074_1920.jpg");
 }
 .register-box {
   width: 800px;

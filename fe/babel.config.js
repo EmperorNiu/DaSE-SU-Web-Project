@@ -13,26 +13,26 @@
 //   ]
 // }
 module.exports = {
-  "presets": [
+  presets: [
     '@vue/cli-plugin-babel/preset'
   ],
-  "plugins": [
+  plugins: [
     [
-      "component",
+      'component',
       {
-        "libraryName": "mint-ui",
-        "style": true
+        libraryName: 'mint-ui',
+        style: true
       },
-      "mint-ui"
+      'mint-ui'
     ],
     [
-      "component",
+      'component',
       {
-        "libraryName": "element-ui",
-        "styleLibraryName": "theme-chalk",
-        "style": true
+        libraryName: 'element-ui',
+        styleLibraryName: 'theme-chalk',
+        style: true
       },
-      "element-ui"
-    ],
+      'element-ui'
+    ]
   ]
 }

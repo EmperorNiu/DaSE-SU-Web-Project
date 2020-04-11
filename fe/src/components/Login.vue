@@ -79,11 +79,13 @@ export default {
               type: 'success'
             })
             window.sessionStorage.setItem('token', res.data.token)
+            window.sessionStorage.setItem('user_id', res.data.userId)
+            window.sessionStorage.setItem('user_name', res.data.userName)
             this.$router.push('/home')
           })
+          // eslint-disable-next-line handle-callback-err
           .catch(err => {
             this.$message('登录失败')
-            console.log(err)
           })
       })
     }
@@ -95,7 +97,7 @@ export default {
 .login-container {
   background-color: #2b4b6b;
   height: auto;
-  background-image: url(../assets/starry-sky-1654074_1920.jpg);
+  background-image: url("../assets/starry-sky-1654074_1920.jpg");
 }
 .login-box {
   width: 500px;

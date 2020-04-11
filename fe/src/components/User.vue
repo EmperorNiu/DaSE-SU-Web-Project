@@ -27,10 +27,12 @@
       <el-tag type="warning">Python</el-tag>
       <el-tag type="danger">javascript</el-tag>
     </div>
+    <div id="my_chart" style="height:200px;"></div>
   </div>
 </template>
 
 <script>
+// import echarts from 'echarts'
 export default {
   data() {
     return {
@@ -38,6 +40,40 @@ export default {
         'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
       username: '开发者X7',
       major: '数据科学与工程学院'
+    }
+  },
+  mounted() {
+    this.initCharts()
+  },
+  methods: {
+    initCharts() {
+      var echarts = require('echarts/lib/echarts')
+      // 引入柱状图
+      require('echarts/lib/chart/bar')
+      // 引入提示框和标题组件
+      require('echarts/lib/component/tooltip')
+      require('echarts/lib/component/title')
+      this.chart = echarts.init(document.getElementById('my_chart'))
+      this.setOptions()
+    },
+    setOptions() {
+      this.chart.setOption({
+        title: {
+          text: 'ECharts 入门示例'
+        },
+        tooltip: {},
+        xAxis: {
+          data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+        },
+        yAxis: {},
+        series: [
+          {
+            name: '销量',
+            type: 'bar',
+            data: [5, 20, 36, 10, 10, 20]
+          }
+        ]
+      })
     }
   }
 }
@@ -67,10 +103,10 @@ export default {
   word-spacing: 15px;
 }
 .tags {
-    margin-top: 20px;
-    margin-left: 20px;
+  margin-top: 20px;
+  margin-left: 20px;
 }
 .el-tag {
-    margin: 5px;
+  margin: 5px;
 }
 </style>

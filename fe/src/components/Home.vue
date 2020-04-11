@@ -85,7 +85,6 @@ export default {
       return sources
     },
     save(data) {
-      console.log(data)
       const stores = this.storeToJson()
       const map = {}
       stores.forEach((store, idx) => (map[store.hs.id] = idx))
@@ -102,7 +101,6 @@ export default {
           stores.push(store)
         }
       })
-      console.log(stores)
       window.sessionStorage.setItem('hl', stores)
     },
     handleClick(vm, event) {

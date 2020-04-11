@@ -34,6 +34,6 @@ func Login(c *gin.Context) {
 		io.WriteString(h,strconv.FormatInt(time.Now().Unix(),10))
 		token := fmt.Sprintf("%x",h.Sum(nil))
 		user.Update("token",token)
-		c.JSON(http.StatusOK, gin.H{"message": "success", "token": token})
+		c.JSON(http.StatusOK, gin.H{"message": "success", "token": token,"userId":_user.AuthId,"userName":_user.Username})
 	}
 }
