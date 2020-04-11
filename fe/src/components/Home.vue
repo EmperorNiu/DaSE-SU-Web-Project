@@ -1,5 +1,7 @@
 <template>
   <div>
+    <el-calendar v-model="date_value"></el-calendar>
+
     <div v-html="ss" v-contextmenu:contextmenu id="ss"></div>
     <el-drawer
       title="我是标题"
@@ -62,6 +64,7 @@ export default {
       textarea: '',
       ss: '<h2>这是一个h2标签</h2>',
       highId: '',
+      date_value: new Date(),
       comment: [
         { hlId: 0, writer: 'test', content: '这是一个评论或者订正呀！！' }
       ]

@@ -96,7 +96,7 @@ export default {
         { id: '2', authName: '第三目录' }
       ],
       // 是否折叠
-      isCollapse: false,
+      isCollapse: true,
       // 被激活的链接地址
       activePath: 'xxx',
       iconsObj: {

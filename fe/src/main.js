@@ -15,12 +15,16 @@ import 'mavon-editor/dist/css/index.css'
 // 右键自定义菜单插件
 import contentmenu from 'v-contextmenu/dist/index.js'
 import 'v-contextmenu/dist/index.css'
+// 背景特效
+import VueParticles from 'vue-particles'
+
 Vue.use(mavonEditor)
 Vue.use(contentmenu)
+Vue.use(VueParticles)
 Vue.config.productionTip = false
 
 // 配置请求根路径
-axios.defaults.baseURL = 'http://127.0.0.1:8888/api/v1/'
+axios.defaults.baseURL = 'http://localhost:8001/api/'
 axios.interceptors.request.use(config => {
   // console.log(config)
   config.headers.Authorization = window.sessionStorage.getItem('token')
@@ -28,7 +32,7 @@ axios.interceptors.request.use(config => {
   return config
 })
 Vue.prototype.$http = axios
-
+axios.defaults.headers.post['Content-Type'] = 'application/json'
 new Vue({
   router,
   render: h => h(App)

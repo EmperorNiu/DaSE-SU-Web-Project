@@ -1,5 +1,6 @@
 <template>
   <div class="register-container">
+    <vue-particles color="#ccc"></vue-particles>
     <div class="register-box">
       <h1 class="title">注册</h1>
       <el-form
@@ -9,25 +10,25 @@
         label-width="130px"
         class="register-form"
       >
-        <el-form-item label="姓名" prop="name">
+        <el-form-item label="姓名" prop="name" class="changeLabel">
           <el-input v-model="registerForm.name"></el-input>
         </el-form-item>
-        <el-form-item label="密码" prop="password">
+        <el-form-item label="密码" prop="password" class="changeLabel">
           <el-input v-model="registerForm.password" type="password"></el-input>
         </el-form-item>
-        <el-form-item label="再次输入密码" prop="checkPass">
+        <el-form-item label="再次输入密码" prop="checkPass" class="changeLabel">
           <el-input v-model="registerForm.checkPass" type="password"></el-input>
         </el-form-item>
-        <el-form-item label="性别">
+        <el-form-item label="性别" class="changeLabel">
           <el-radio-group v-model="registerForm.sex">
             <el-radio label="男"></el-radio>
             <el-radio label="女"></el-radio>
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="邮箱" prop="mail">
+        <el-form-item label="邮箱" prop="mail" class="changeLabel">
           <el-input v-model="registerForm.mail"></el-input>
         </el-form-item>
-        <el-form-item label="入学年份" prop="grade">
+        <el-form-item label="入学年份" prop="grade" class="changeLabel">
           <el-input v-model.number="registerForm.grade" type="number"></el-input>
         </el-form-item>
         <el-form-item label="专业" prop="major">
@@ -100,7 +101,7 @@ export default {
 }
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .title {
   color: #ffffff;
   text-align: center;
@@ -108,6 +109,7 @@ export default {
 .register-container {
   background-color: rgb(72, 72, 72);
   height: 100%;
+  background-image: url(../assets/starry-sky-1654074_1920.jpg);
 }
 .register-box {
   width: 800px;
@@ -117,7 +119,7 @@ export default {
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  background-color: rgba(40, 40, 40, 0.678);
+  background-color: rgba(110, 110, 110, 0.678);
 }
 .register-form {
   position: absolute;
@@ -126,14 +128,17 @@ export default {
   padding: 0 40px;
   box-sizing: border-box;
   .el-form-item__label {
-    color: #ffffff;
+    color: #fff !important;
   }
   .el-radio__label {
-    color: #ffffff;
+    color: #fff;
   }
 }
 .btns {
   display: flex;
   justify-content: flex-end;
+}
+.changeLabel {
+  color: #fff;
 }
 </style>
