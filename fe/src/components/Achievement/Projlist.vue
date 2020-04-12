@@ -5,7 +5,7 @@
     <projinfo></projinfo> -->
     <ul class="mui-table-view">
       <li class="mui-table-view-cell mui-media" v-for="item in projlist" :key="item.project_id">
-        <router-link :to="'/home/projinfo/' + item.project_id">
+        <router-link :to="'/projinfo/' + item.project_id">
           <div class="mui-media-body">
             <h1>{{ item.project_leader }}</h1>
             <!-- <p class='mui-ellipsis'>

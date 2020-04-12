@@ -13,8 +13,8 @@ import Memlist from '../components/Achievement/Memlist.vue'
 import Projinfo from '../components/Achievement/Projinfo.vue'
 import Meminfo from '../components/Achievement/Meminfo.vue'
 import comment from '../components/subcomponents/comment.vue'
-// import show from '../components/show.vue'
 import show1 from '../components/subcomponents/show1.vue'
+import WriteProj from '../components/Achievement/WriteProj.vue'
 
 Vue.use(VueRouter)
 
@@ -36,8 +36,8 @@ const routes = [
       { path: '/memlist', component: Memlist },
       { path: '/projinfo/:id', component: Projinfo, show1 },
       { path: '/meminfo/:id', component: Meminfo },
-      { path: '/comment/:id', component: comment }
-      // { path: '/show', component: show }
+      { path: '/comment/:id', component: comment },
+      { path: '/writeproj', component: WriteProj }
     ]
   }
 ]

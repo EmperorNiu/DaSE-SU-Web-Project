@@ -110,7 +110,7 @@ border: 1px solid #E5E5E5;
 background: #FBFBFB;
 outline: 0;
 -webkit-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
-box-shadow: inset 1px 1px 2px rgba(238, 238, 238, 0.2);
+box-shadow: inset 1px 1px 2px rgba(12, 11, 11, 0.2);
 font: normal 14px/14px Arial, Helvetica, sans-serif;
 }
 .smart-green textarea {
