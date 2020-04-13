@@ -6,18 +6,15 @@
       <div class="author">{{projinfo.project_leader}}</div>
     </div>
     <div class="recommend">{{projinfo.ProjectDescription}}</div>
-    <!--<div class="statistics">
-      <div class="comment-num">评论数：{{commentNums}}</div>
-      <div class="view-num">观看人数： {{viewNums}}</div>
-      <div class="view-time">预计观看时间：{{viewTime}}</div>
-    </div>-->
-    <comment-box :id="this.id"></comment-box>
+    <!-- <show1></show1> -->
+    <!-- <comment-box :id="this.id"></comment-box> -->
     </div>
   </div>
 </template>
 
 <script>
-import comment from '../subcomponents/comment.vue'
+// import comment from '../subcomponents/comment.vue'
+// import show1 from '../subcomponents/show1.vue'
 import { Toast } from 'mint-ui'
 export default {
   data() {
@@ -43,7 +40,9 @@ export default {
   },
   components: {
     // 用来注册子组件的节点
-    'comment-box': comment
+    // 'comment-box': comment,
+    // eslint-disable-next-line vue/no-unused-components
+    // show1
   }
 }
 </script>
@@ -51,7 +50,8 @@ export default {
 <style lang="less" scoped>
 .projinfo-container {
   width: 85%;
-  height: 150px;
+  // height: 150px;
+  height: 1500px;
   // margin-left: 5%;
   background-color: rgb(247, 247, 247);
   box-shadow: 0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
