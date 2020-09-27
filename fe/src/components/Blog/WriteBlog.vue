@@ -1,10 +1,18 @@
 <template>
   <div>
+    <div class="blog_container">
+
     <div class="blog_title">
       标题：
       <el-input placeholder="请输入文章标题" v-model="title" clearable></el-input>
     </div>
     <mavon-editor v-model="value" :ishljs="true" @save="saveMd" />
+    <div class="button">
+
+    <el-button>上传</el-button>
+    <el-button>提交</el-button>
+    </div>
+    </div>
   </div>
 </template>
 
@@ -48,3 +56,15 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.blog_container{
+width: 95%;
+height: 95%;  
+.button{
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0px;
+}
+}
+</style>
