@@ -26,7 +26,7 @@ export default {
         content_html: render,
         content_md: value
       }
-      console.log(newBlog)
+      // console.log(newBlog)
       this.$http
         .post('blog/publishBlog', newBlog, {
           headers: {

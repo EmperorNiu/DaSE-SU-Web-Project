@@ -46,9 +46,6 @@ export default {
           // console.log(result)
           // eslint-disable-next-line handle-callback-err
         })
-        .catch(err => {
-          console.log(err)
-        })
     },
     saveMd(value, render) {
       //   console.log('this is render' + render)

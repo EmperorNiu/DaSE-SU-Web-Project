@@ -6,7 +6,6 @@
         <img src="#" />
         <span>DaSE SU</span>
       </div>
-
       <el-menu
         class="home-menu"
         mode="horizontal"
@@ -28,6 +27,12 @@
           <el-menu-item index="/projlist">项目展示</el-menu-item>
           <el-menu-item index="/writeproj">写项目</el-menu-item>
           <el-menu-item index="/memlist">校友会</el-menu-item>
+        </el-submenu>
+        <el-submenu index="/alumni">
+          <template slot="title">校友会</template>
+          <el-menu-item index="/graduatesgo">毕业生去向</el-menu-item>
+          <el-menu-item index="/graduatesjob">毕业生展示</el-menu-item>
+          <el-menu-item index="/mycareer">填写我的发展</el-menu-item>
         </el-submenu>
         <el-menu-item index="/activity">学生会活动</el-menu-item>
         <el-menu-item index="/user">我的</el-menu-item>

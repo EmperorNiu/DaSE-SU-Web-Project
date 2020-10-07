@@ -15,7 +15,9 @@ import Meminfo from '../components/Achievement/Meminfo.vue'
 import comment from '../components/subcomponents/comment.vue'
 import show1 from '../components/subcomponents/show1.vue'
 import WriteProj from '../components/Achievement/WriteProj.vue'
-
+import GraduatesGo from '../components/Alumni/GraduatesGo.vue'
+import GraduatesJob from '../components/Alumni/GraduatesJob.vue'
+import MyCareer from '../components/Alumni/MyCareer.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -37,7 +39,10 @@ const routes = [
       { path: '/projinfo/:id', component: Projinfo, show1 },
       { path: '/meminfo/:id', component: Meminfo },
       { path: '/comment/:id', component: comment },
-      { path: '/writeproj', component: WriteProj }
+      { path: '/writeproj', component: WriteProj },
+      { path: '/graduatesgo', component: GraduatesGo },
+      { path: '/graduatesjob', component: GraduatesJob },
+      { path: '/mycareer', component: MyCareer }
     ]
   }
 ]
