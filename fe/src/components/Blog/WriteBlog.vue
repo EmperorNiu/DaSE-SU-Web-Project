@@ -60,7 +60,7 @@ export default {
 <style lang="less" scoped>
 .blog_container{
 width: 95%;
-height: 95%;  
+height: 95%;
 .button{
   display: flex;
   justify-content: flex-end;

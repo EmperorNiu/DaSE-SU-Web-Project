@@ -31,10 +31,10 @@
 
 <script>
 export default {
-  // created() {
-  //   this.initBlogList()
-  //   // this.blogs = this.blogs.concat(this.blogIntro)
-  // },
+  created() {
+    this.initBlogList()
+    // this.blogs = this.blogs.concat(this.blogIntro)
+  },
   data() {
     return {
       blogs: [],
@@ -46,29 +46,23 @@ export default {
           '随机梯度下降 SGD、动量 Momentum、Momentum+SGD算法、牛顿动量 Nesterov、Nesterov+SGD算法、AdaGrad',
         star_times: 0,
         read_times: 0,
-        thumbs_times: 0,
-      },
+        thumbs_times: 0
+      }
     }
   },
-
-  // methods: {
-  //   initBlogList() {
-  //     this.$http
-  //       .get('blog/getBlogList')
-  //       .then(result => {
-  //         this.blogs = result.data.blogs
-  //         // console.log(result)
-  //         // eslint-disable-next-line handle-callback-err
-  //       })
-  //       .catch(err => {
-  //         console.log(err)
-  //       })
-  //   },
-  //   saveMd(value, render) {
-  //     //   console.log('this is render' + render)
-  //     window.sessionStorage.setItem('blog', render)
-  //   }
-  // }
+  methods: {
+    initBlogList() {
+      this.$http
+        .get('blog/getBlogList', {
+          headers: {
+            token: window.sessionStorage.getItem('token')
+          }
+        })
+        .then(result => {
+          this.blogs = result.data.blogs
+        })
+    }
+  }
 }
 </script>
 
