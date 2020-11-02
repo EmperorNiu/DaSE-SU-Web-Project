@@ -1,8 +1,8 @@
 package main
 
 import (
-	"SUweb/conf"
-	"SUweb/routers"
+	"./conf"
+	"./routers"
 	"fmt"
 	"net/http"
 )

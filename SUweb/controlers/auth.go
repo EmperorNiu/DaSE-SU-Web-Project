@@ -1,8 +1,8 @@
 package controlers
 
 import (
-	"SUweb/e"
-	"SUweb/models"
+	"../e"
+	"../models"
 	"crypto/md5"
 	"fmt"
 	"github.com/gin-gonic/gin"

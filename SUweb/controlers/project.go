@@ -1,8 +1,8 @@
 package controlers
 
 import (
-	"SUweb/e"
-	"SUweb/models"
+	"../e"
+	"../models"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )

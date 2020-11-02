@@ -1,7 +1,7 @@
 package routers
 
 import (
-	"SUweb/controlers"
+	"../controlers"
 	"github.com/gin-gonic/gin"
 	"net/http"
 )
