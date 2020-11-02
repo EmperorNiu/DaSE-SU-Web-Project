@@ -7,11 +7,11 @@
       <el-input placeholder="请输入文章标题" v-model="title" clearable></el-input>
     </div>
     <mavon-editor v-model="value" :ishljs="true" @save="saveMd" />
-    <div class="button">
-
-    <el-button>上传</el-button>
-    <el-button>提交</el-button>
-    </div>
+    <!-- <div class="button">
+    上传一个md文件
+    <el-button round @click="upload">上传</el-button>
+    <el-button round @click="submit">提交</el-button>
+    </div> -->
     </div>
   </div>
 </template>

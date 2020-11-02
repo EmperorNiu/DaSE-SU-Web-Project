@@ -5,6 +5,8 @@ import Register from '../components/Register.vue'
 import Frame from '../components/Frame.vue'
 import BlogIntro from '../components/Blog/BlogIntro.vue'
 import WriteBlog from '../components/Blog/WriteBlog.vue'
+import MyBlogs from '../components/Blog/MyBlogs.vue'
+import WatchLater from '../components/Blog/WatchLater.vue'
 import Home from '../components/Home.vue'
 import User from '../components/User.vue'
 import Activity from '../components/Activity.vue'
@@ -30,6 +32,8 @@ const routes = [
       { path: '/home', component: Home },
       { path: '/blog', component: BlogIntro },
       { path: '/writeblog', component: WriteBlog },
+      { path: '/playlist', component: WatchLater },
+      { path: '/myblogs', component: MyBlogs },
       { path: '/user', component: User },
       { path: '/activity', component: Activity },
       { path: '/projlist', component: Projlist },
