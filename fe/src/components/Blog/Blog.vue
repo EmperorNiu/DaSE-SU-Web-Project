@@ -1,10 +1,5 @@
 <template>
   <div>
-    <div>
-  <el-input placeholder="请输入内容" v-model="input1">
-    <template slot="prepend">Http://</template>
-  </el-input>
-  </div>
     <!-- <div class="blog-intro-container">
     <div class="info">
       <div class="title">{{blogIntro.title}}</div>
