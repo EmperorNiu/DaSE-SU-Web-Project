@@ -1,10 +1,27 @@
 <template>
   <div>
     <div class="proj_title">
-      标题：
-      <el-input placeholder="请输入文章标题" v-model="title" clearable></el-input>
+      <el-input placeholder="项目名称" v-model="title" clearable></el-input>
     </div>
+    <div class="proj_author">
+      <el-input placeholder="作者" v-model="author" clearable ></el-input>
+    </div>
+    <p></p>
     <mavon-editor v-model="value" :ishljs="true" @save="saveMd" />
+    <p></p>
+    <label>请选择上传源代码:</label>
+    <p></p>
+    <el-upload
+  class="upload-demo"
+  ref="upload"
+  action=""
+  :on-preview="handlePreview"
+  :on-remove="handleRemove"
+  :file-list="fileList"
+  :auto-upload="false">
+  <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
+  <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
+</el-upload>
   </div>
 </template>
 
@@ -13,10 +30,22 @@ export default {
   data() {
     return {
       md: '',
-      title: ''
+      title: '',
+      author: '',
+      fileList: [
+      ]
     }
   },
   methods: {
+    submitUpload() {
+      this.$refs.upload.submit()
+    },
+    handleRemove(file, fileList) {
+      console.log(file, fileList)
+    },
+    handlePreview(file) {
+      console.log(file)
+    },
     saveMd(value, render) {
       //   console.log('this is render' + render)
       var newProj = {

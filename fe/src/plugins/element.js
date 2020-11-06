@@ -5,7 +5,7 @@ import {
   Container, Header, Main, Aside, Col, Row,
   Breadcrumb, BreadcrumbItem, Card, Drawer,
   Radio, RadioGroup, Avatar, Tag, Calendar,
-  Backtop, Table, TableColumn, Divider
+  Backtop, Table, TableColumn, Divider, Upload
 } from 'element-ui'
 
 Vue.use(Button)
@@ -35,4 +35,5 @@ Vue.use(Calendar)
 Vue.use(Backtop)
 Vue.use(Table)
 Vue.use(TableColumn)
+Vue.use(Upload)
 Vue.prototype.$message = Message
