@@ -5,12 +5,20 @@ import {
   Container, Header, Main, Aside, Col, Row,
   Breadcrumb, BreadcrumbItem, Card, Drawer,
   Radio, RadioGroup, Avatar, Tag, Calendar,
-  Backtop, Table, TableColumn, Divider, Upload
+  Backtop, Table, TableColumn, Divider, Upload,
+  Notification, Image, Timeline, TimelineItem,
+  Dialog, Select, Option
 } from 'element-ui'
 
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
+Vue.use(Dialog)
+Vue.use(Select)
+Vue.use(Option)
+Vue.use(Image)
+Vue.use(Timeline)
+Vue.use(TimelineItem)
 Vue.use(Input)
 Vue.use(Menu)
 Vue.use(Submenu)
@@ -36,4 +44,6 @@ Vue.use(Backtop)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Upload)
+Vue.use(Notification)
 Vue.prototype.$message = Message
+Vue.prototype.$notify = Notification

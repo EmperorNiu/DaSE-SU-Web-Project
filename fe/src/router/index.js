@@ -5,7 +5,7 @@ import Register from '../components/Register.vue'
 import Frame from '../components/Frame.vue'
 import BlogIntro from '../components/Blog/BlogIntro.vue'
 import WriteBlog from '../components/Blog/WriteBlog.vue'
-import Home from '../components/Home.vue'
+// import Home from '../components/Home.vue'
 import User from '../components/User.vue'
 import Activity from '../components/Activity.vue'
 import Projlist from '../components/Achievement/Projlist.vue'
@@ -18,6 +18,7 @@ import WriteProj from '../components/Achievement/WriteProj.vue'
 import GraduatesGo from '../components/Alumni/GraduatesGo.vue'
 import GraduatesJob from '../components/Alumni/GraduatesJob.vue'
 import MyCareer from '../components/Alumni/MyCareer.vue'
+import Calendar from '../components/Calendar/Calendar2.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,7 +30,7 @@ const routes = [
     component: Frame,
     redirect: '/home',
     children: [
-      { path: '/home', component: Home },
+      { path: '/home', component: Calendar },
       { path: '/blog', component: BlogIntro },
       { path: '/writeblog', component: WriteBlog },
       { path: '/user', component: User },
