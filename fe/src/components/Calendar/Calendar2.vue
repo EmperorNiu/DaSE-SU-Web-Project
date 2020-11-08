@@ -6,7 +6,7 @@
           <el-card>
             <el-calendar v-model="value" :first-day-of-week="7">
               <template slot="dateCell" slot-scope="{data}">
-                <div slot="reference" class="div-Calendar" @click="saveOnClick">
+                <div slot="reference" class="div-Calendar" @dblclick="saveOnClick">
                   <p :class="data.isSelected ? 'is-selected' : ''">
                     {{ data.day.split('-').slice(1).join('-') }}
                     <i
