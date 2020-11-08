@@ -4,7 +4,7 @@ import {
   Menu, MenuItem, MenuItemGroup, Submenu,
   Container, Header, Main, Aside,
   Breadcrumb, BreadcrumbItem, Card, Drawer,
-  Radio, RadioGroup, Avatar, Tag, Calendar, Tooltip,Pagination,Switch
+  Radio, RadioGroup, Avatar, Tag, Calendar, Tooltip, Pagination, Switch
 } from 'element-ui'
 
 Vue.use(Switch)

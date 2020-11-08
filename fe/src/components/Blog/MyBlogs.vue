@@ -27,7 +27,6 @@
     </div>
 <!-- 分页 -->
     <!-- <div style="float:left;margin:15px">
-
     <el-switch v-model="value" style="margin-bottom:0px">
     </el-switch>
     <el-pagination
@@ -48,9 +47,8 @@ export default {
   },
   data() {
     return {
-      value:false,
-      blogs: [
-      ],
+      value: false,
+      blogs: [],
       blogIntro: {
         blogId: 0,
         title: '深度学习优化器',
@@ -80,8 +78,6 @@ export default {
 
   }
 }
-
-
 </script>
 
 <style lang="less" scoped>
@@ -111,7 +107,6 @@ export default {
       float: right; position:stastic; margin-bottom: 10px
     }
   }
-  
   .recommend {
     color: #7e7e7e;
   }

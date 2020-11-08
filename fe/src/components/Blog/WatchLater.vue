@@ -48,7 +48,7 @@ export default {
   // },
   data() {
     return {
-      value:false,
+      value: false,
       blogs: [
       ],
       blogIntro: {
@@ -80,7 +80,6 @@ export default {
   }
 }
 
-
 </script>
 
 <style lang="less" scoped>
@@ -110,10 +109,8 @@ export default {
       float: right; position:stastic; margin-bottom: 10px
     }
   }
-  
   .recommend {
     color: #7e7e7e;
   }
 }
-
 </style>

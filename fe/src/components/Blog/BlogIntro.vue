@@ -42,7 +42,6 @@
       layout="prev, pager, next">
     </el-pagination>
     </div>
-    
   </div>
 </template>
 
@@ -55,9 +54,8 @@ export default {
   },
   data() {
     return {
-      value:false,
-      blogs: [
-      ],
+      value: false,
+      blogs: [],
       blogIntro: {
         blogId: 0,
         title: '深度学习优化器',
@@ -83,14 +81,14 @@ export default {
           this.blogs = result.data.blogs
         })
     },
-    getBlogNums(){
+    getBlogNums() {
       this.$http
-      .get('blog/getBlogNums')
-      .then(
-        result => {
-          this.blogNums=Math.ceil(result.data.blogNums/5)*10
-        }
-      )
+        .get('blog/getBlogNums')
+        .then(
+          result => {
+            this.blogNums = Math.ceil(result.data.blogNums / 5) * 10
+          }
+        )
     },
     saveMd(value, render) {
       //   console.log('this is render' + render)
@@ -99,19 +97,15 @@ export default {
     // 添加到稍后浏览
     // 将blogID回传, 后端应该存入到该用户的某个数据库下
     // 在稍后看中从数据库中获取之前所存的博客
-    add(value){
+    add(value) {
       this.$$http
-        .post('blog/watchLater',{blogID:value})
-        .then(result =>{
+        .post('blog/watchLater', { blogID: value })
+        .then(result => {
           console.log(result)
         })
-    }      
+    }
   }
 }
-
-
-
-
 </script>
 
 <style lang="less" scoped>
@@ -141,10 +135,8 @@ export default {
       float: right; position:stastic; margin-bottom: 10px
     }
   }
-  
   .recommend {
     color: #7e7e7e;
   }
 }
-
 </style>
