@@ -1,42 +1,90 @@
 <template>
   <div class="register-container">
-    <vue-particles color="#ccc"></vue-particles>
+    <vue-particles color="#ccc" />
     <div class="register-box">
-      <h1 class="title">注册</h1>
+      <h1 class="title">
+        注册
+      </h1>
       <el-form
+        ref="registerForm"
         :model="registerForm"
         :rules="rules"
-        ref="registerForm"
         label-width="130px"
         class="register-form"
       >
-        <el-form-item label="姓名" prop="name" class="changeLabel">
-          <el-input v-model="registerForm.name"></el-input>
+        <el-form-item
+          label="姓名"
+          prop="name"
+          class="changeLabel"
+        >
+          <el-input v-model="registerForm.name" />
         </el-form-item>
-        <el-form-item label="密码" prop="password" class="changeLabel">
-          <el-input v-model="registerForm.password" type="password"></el-input>
+        <el-form-item
+          label="密码"
+          prop="password"
+          class="changeLabel"
+        >
+          <el-input
+            v-model="registerForm.password"
+            type="password"
+          />
         </el-form-item>
-        <el-form-item label="再次输入密码" prop="checkPass" class="changeLabel">
-          <el-input v-model="registerForm.checkPass" type="password"></el-input>
+        <el-form-item
+          label="再次输入密码"
+          prop="checkPass"
+          class="changeLabel"
+        >
+          <el-input
+            v-model="registerForm.checkPass"
+            type="password"
+          />
         </el-form-item>
-        <el-form-item label="性别" class="changeLabel">
+        <el-form-item
+          label="性别"
+          class="changeLabel"
+        >
           <el-radio-group v-model="registerForm.sex">
-            <el-radio label="男"></el-radio>
-            <el-radio label="女"></el-radio>
+            <el-radio label="男" />
+            <el-radio label="女" />
           </el-radio-group>
         </el-form-item>
-        <el-form-item label="邮箱" prop="mail" class="changeLabel">
-          <el-input v-model="registerForm.mail"></el-input>
+        <el-form-item
+          label="邮箱"
+          prop="mail"
+          class="changeLabel"
+        >
+          <el-input v-model="registerForm.mail" />
         </el-form-item>
-        <el-form-item label="入学年份" prop="grade" class="changeLabel">
-          <el-input v-model.number="registerForm.grade" type="number"></el-input>
+        <el-form-item
+          label="入学年份"
+          prop="grade"
+          class="changeLabel"
+        >
+          <el-input
+            v-model.number="registerForm.grade"
+            type="number"
+          />
         </el-form-item>
-        <el-form-item label="专业" prop="major">
-          <el-input v-model="registerForm.major"></el-input>
+        <el-form-item
+          label="专业"
+          prop="major"
+        >
+          <el-input v-model="registerForm.major" />
         </el-form-item>
         <el-form-item class="btns">
-          <el-button type="primary" @click="submitForm('ruleForm')" class="btn1">注册</el-button>
-          <el-button @click="resetForm('ruleForm')" class="btn2">重置</el-button>
+          <el-button
+            type="primary"
+            class="btn1"
+            @click="submitForm('ruleForm')"
+          >
+            注册
+          </el-button>
+          <el-button
+            class="btn2"
+            @click="resetForm('ruleForm')"
+          >
+            重置
+          </el-button>
         </el-form-item>
       </el-form>
     </div>

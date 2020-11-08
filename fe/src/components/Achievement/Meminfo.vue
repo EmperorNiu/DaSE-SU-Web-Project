@@ -1,14 +1,19 @@
 <template>
   <div class="meminfo-container">
     <!-- 大标题 -->
-    <h3 class="title">{{ meminfo.author }}</h3>
+    <h3 class="title">
+      {{ meminfo.author }}
+    </h3>
     <!-- 子标题 -->
     <!-- <p class="subtitle">
       <span>年级：{{ meminfo.add_time | dateFormat }}</span>
     </p> -->
     <hr>
     <!-- 内容区域 -->
-    <div class="content" v-html="meminfo.article_html"></div>
+    <div
+      class="content"
+      v-html="meminfo.article_html"
+    />
   </div>
 </template>
 

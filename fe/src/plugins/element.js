@@ -5,7 +5,7 @@ import {
   Container, Header, Main, Aside, Col, Row,
   Breadcrumb, BreadcrumbItem, Card, Drawer,
   Radio, RadioGroup, Avatar, Tag, Calendar,
-  Backtop, Table, TableColumn, Divider, Upload
+  Backtop, Table, TableColumn, Divider, Upload, Carousel, CarouselItem
 } from 'element-ui'
 
 Vue.use(Button)
@@ -36,4 +36,6 @@ Vue.use(Backtop)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Upload)
+Vue.use(Carousel)
+Vue.use(CarouselItem)
 Vue.prototype.$message = Message

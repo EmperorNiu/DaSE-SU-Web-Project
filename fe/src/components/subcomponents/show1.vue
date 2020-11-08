@@ -1,10 +1,17 @@
 <template>
-    <form  method="post" class="smart-green">
+  <form
+    method="post"
+    class="smart-green"
+  >
     <label><span>页面标题 :</span>
-        <input id="title" type="text" name="title"  />
-        <div class="error-msg"></div>
+      <input
+        id="title"
+        type="text"
+        name="title"
+      >
+      <div class="error-msg" />
     </label>
-   <!-- <label><span>邮箱 :</span>
+    <!-- <label><span>邮箱 :</span>
         <input id="email" type="email" value="" name="email" /> &nbsp; &nbsp; &nbsp; &nbsp;
         <div class="error-msg"></div></label>-->
     <!-- <label><span>关键字 :</span>
@@ -22,16 +29,26 @@
         <el-button type="primary" @click="submit">提交</el-button>
         </div>
         </textarea> -->
-        <!-- <div class="error-msg"></div> &nbsp; &nbsp; </label>
+    <!-- <div class="error-msg"></div> &nbsp; &nbsp; </label>
     <div class="success-msg"></div>
     <label><span>&nbsp;</span><input type="submit" class="button" value="确定" /></label>
     <input type="hidden" name="csrfmiddlewaretoken" value="SfHkbL4feo1G00sJQtbO7TtLN4c2BUwa" /> -->
     <label><span>页面描述 :</span></label>
     <div>
-        <quill-editor ref="text" v-model="content" class="myQuillEditor" :options="editorOption" />
-        <el-button type="primary" @click="submit">提交</el-button>
+      <quill-editor
+        ref="text"
+        v-model="content"
+        class="myQuillEditor"
+        :options="editorOption"
+      />
+      <el-button
+        type="primary"
+        @click="submit"
+      >
+        提交
+      </el-button>
     </div>
-</form>
+  </form>
 </template>
 
 <script>
@@ -41,6 +58,9 @@ import 'quill/dist/quill.snow.css'
 import 'quill/dist/quill.bubble.css'
 
 export default {
+  components: {
+    quillEditor
+  },
   data() {
     return {
       content: '',
@@ -51,9 +71,6 @@ export default {
     submit () {
       console.log(this.$refs.text.value)
     }
-  },
-  components: {
-    quillEditor
   }
 }
 </script>

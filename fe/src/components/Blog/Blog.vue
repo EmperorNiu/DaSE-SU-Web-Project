@@ -12,13 +12,16 @@
       <div class="view-time">预计观看时间：{{viewTime}}</div>
     </div>
     </div>-->
-    <blog-intro></blog-intro>
+    <blog-intro />
   </div>
 </template>
 
 <script>
 import blogIntro from './BlogIntro.vue'
 export default {
+  components: {
+    blogIntro: blogIntro
+  },
   data() {
     return {
       blogIntro: {
@@ -34,9 +37,6 @@ export default {
       //   console.log('this is render' + render)
       window.sessionStorage.setItem('blog', render)
     }
-  },
-  components: {
-    blogIntro: blogIntro
   }
 }
 </script>

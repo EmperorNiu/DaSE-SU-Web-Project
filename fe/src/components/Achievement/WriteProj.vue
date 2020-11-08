@@ -1,27 +1,53 @@
 <template>
   <div>
     <div class="proj_title">
-      <el-input placeholder="项目名称" v-model="title" clearable></el-input>
+      <el-input
+        v-model="title"
+        placeholder="项目名称"
+        clearable
+      />
     </div>
     <div class="proj_author">
-      <el-input placeholder="作者" v-model="author" clearable ></el-input>
+      <el-input
+        v-model="author"
+        placeholder="作者"
+        clearable
+      />
     </div>
-    <p></p>
-    <mavon-editor v-model="value" :ishljs="true" @save="saveMd" />
-    <p></p>
+    <p />
+    <mavon-editor
+      v-model="value"
+      :ishljs="true"
+      @save="saveMd"
+    />
+    <p />
     <label>请选择上传源代码:</label>
-    <p></p>
+    <p />
     <el-upload
-  class="upload-demo"
-  ref="upload"
-  action=""
-  :on-preview="handlePreview"
-  :on-remove="handleRemove"
-  :file-list="fileList"
-  :auto-upload="false">
-  <el-button slot="trigger" size="small" type="primary">选取文件</el-button>
-  <el-button style="margin-left: 10px;" size="small" type="success" @click="submitUpload">上传到服务器</el-button>
-</el-upload>
+      ref="upload"
+      class="upload-demo"
+      action=""
+      :on-preview="handlePreview"
+      :on-remove="handleRemove"
+      :file-list="fileList"
+      :auto-upload="false"
+    >
+      <el-button
+        slot="trigger"
+        size="small"
+        type="primary"
+      >
+        选取文件
+      </el-button>
+      <el-button
+        style="margin-left: 10px;"
+        size="small"
+        type="success"
+        @click="submitUpload"
+      >
+        上传到服务器
+      </el-button>
+    </el-upload>
   </div>
 </template>
 

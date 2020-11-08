@@ -1,7 +1,10 @@
 <template>
   <div>
     <el-card class="box-card">
-      <div id="graduate_map" style="height: 580px"></div>
+      <div
+        id="graduate_map"
+        style="height: 580px"
+      />
     </el-card>
   </div>
 </template>
