@@ -1,15 +1,45 @@
 <template>
   <div>
-    <el-calendar v-model="date_value"></el-calendar>
+    <el-calendar v-model="date_value" />
 
+<<<<<<< HEAD
+    <div
+      id="ss"
+      v-contextmenu:contextmenu
+      v-html="ss"
+    />
+    <el-drawer
+=======
     <!-- <div v-html="ss" v-contextmenu:contextmenu id="ss"></div> -->
     <!-- <el-drawer
+>>>>>>> 11169385d4000c2484ea48ce536943521cf8e807
       title="我是标题"
       :visible.sync="drawer"
       :direction="direction"
       :before-close="handleClose"
     >
       <span>我来啦!</span>
+<<<<<<< HEAD
+      <el-input
+        v-model="textarea"
+        type="textarea"
+        :rows="2"
+        placeholder="请输入内容"
+      />
+    </el-drawer>
+
+    <v-contextmenu ref="contextmenu">
+      <v-contextmenu-item @click="handleClick">
+        菜单1
+      </v-contextmenu-item>
+      <v-contextmenu-item @click="handleClick">
+        菜单2
+      </v-contextmenu-item>
+      <v-contextmenu-item @click="handleClick">
+        菜单3
+      </v-contextmenu-item>
+    </v-contextmenu>
+=======
       <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
     </el-drawer> -->
 
@@ -18,12 +48,28 @@
       <v-contextmenu-item @click="handleClick">菜单2</v-contextmenu-item>
       <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
     </v-contextmenu> -->
+>>>>>>> 11169385d4000c2484ea48ce536943521cf8e807
   </div>
 </template>
 
 <script>
 // import Highlighter from 'web-highlighter'
 export default {
+  data() {
+    return {
+      // highlighter: {}
+      hl: {},
+      drawer: false,
+      direction: 'rtl',
+      textarea: '',
+      ss: '<h2>这是一个h2标签</h2>',
+      highId: '',
+      date_value: new Date(),
+      comment: [
+        { hlId: 0, writer: 'test', content: '这是一个评论或者订正呀！！' }
+      ]
+    }
+  },
   mounted() {
     // this.hl = window.sessionStorage.getItem('hl')
     // var highlighter = new Highlighter({
@@ -54,21 +100,6 @@ export default {
   },
   destroyed() {
     // highlighter.stop()
-  },
-  data() {
-    return {
-      // highlighter: {}
-      hl: {},
-      drawer: false,
-      direction: 'rtl',
-      textarea: '',
-      ss: '<h2>这是一个h2标签</h2>',
-      highId: '',
-      date_value: new Date(),
-      comment: [
-        { hlId: 0, writer: 'test', content: '这是一个评论或者订正呀！！' }
-      ]
-    }
   },
   methods: {
     handleClose(done) {

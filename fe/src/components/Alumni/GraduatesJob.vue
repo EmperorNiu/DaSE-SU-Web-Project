@@ -1,9 +1,17 @@
 <template>
   <div>
-    <el-table :data="tableData" style="width: 100%" ref="filterTable">
+    <el-table
+      ref="filterTable"
+      :data="tableData"
+      style="width: 100%"
+    >
       <el-table-column type="expand">
         <template slot-scope="props">
-          <el-form label-position="left" inline class="demo-table-expand">
+          <el-form
+            label-position="left"
+            inline
+            class="demo-table-expand"
+          >
             <el-form-item label="姓名">
               <span>{{ props.row.name }}</span>
             </el-form-item>
@@ -25,11 +33,21 @@
           </el-form>
         </template>
       </el-table-column>
-      <el-table-column label="毕业年份" prop="id" sortable
+      <el-table-column
+        label="毕业年份"
+        prop="id"
+        sortable
         :filters="[{text: '2020', value: '2020'}, {text: '2021', value: '2021'}]"
-        :filter-method="filterHandler"> </el-table-column>
-      <el-table-column label="姓名" prop="name"> </el-table-column>
-      <el-table-column label="毕业去向(工作/升学)" prop="desc"> </el-table-column>
+        :filter-method="filterHandler"
+      />
+      <el-table-column
+        label="姓名"
+        prop="name"
+      />
+      <el-table-column
+        label="毕业去向(工作/升学)"
+        prop="desc"
+      />
     </el-table>
   </div>
 </template>

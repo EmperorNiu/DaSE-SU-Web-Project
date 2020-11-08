@@ -2,9 +2,17 @@
   <div>
     <div class="blog_title">
       标题：
-      <el-input placeholder="请输入文章标题" v-model="title" clearable></el-input>
+      <el-input
+        v-model="title"
+        placeholder="请输入文章标题"
+        clearable
+      />
     </div>
-    <mavon-editor v-model="value" :ishljs="true" @save="saveMd" />
+    <mavon-editor
+      v-model="value"
+      :ishljs="true"
+      @save="saveMd"
+    />
   </div>
 </template>
 

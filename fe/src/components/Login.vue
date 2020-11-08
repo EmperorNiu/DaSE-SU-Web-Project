@@ -2,42 +2,59 @@
 <template>
   <div class="login-container">
     <!-- 背景粒子效果 -->
-    <vue-particles color="#ccc"></vue-particles>
+    <vue-particles color="#ccc" />
     <div class="login-box">
       <!-- 图标区域 -->
       <!-- <div class="avatar-box">
         <img src="../assets/daseLogo.png" />
       </div> -->
-      <div class='title'>
+      <div class="title">
         登录
       </div>
       <!-- 表单区域 -->
       <el-form
+        ref="loginFormRef"
         label-width="0"
         class="login_form"
         :model="loginForm"
         :rules="loginFormRules"
-        ref="loginFormRef"
       >
         <el-form-item prop="username">
           <el-input
+            v-model="loginForm.username"
             placeholder="请输入账号"
             prefix-icon="iconfont icon-user"
-            v-model="loginForm.username"
-          ></el-input>
+          />
         </el-form-item>
         <el-form-item prop="password">
           <el-input
+            v-model="loginForm.password"
             placeholder="请输入密码"
             type="password"
             prefix-icon="iconfont icon-3702mima"
-            v-model="loginForm.password"
-          ></el-input>
+          />
         </el-form-item>
         <el-form-item class="btns">
-          <el-button type="primary" round @click="login">登录</el-button>
-          <el-button type="cancel" round @click="resetForm">注册</el-button>
-          <el-button type="warning" circle>忘记密码</el-button>
+          <el-button
+            type="primary"
+            round
+            @click="login"
+          >
+            登录
+          </el-button>
+          <el-button
+            type="cancel"
+            round
+            @click="resetForm"
+          >
+            注册
+          </el-button>
+          <el-button
+            type="warning"
+            circle
+          >
+            忘记密码
+          </el-button>
         </el-form-item>
       </el-form>
     </div>

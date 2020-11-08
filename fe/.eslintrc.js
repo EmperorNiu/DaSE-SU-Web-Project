@@ -17,10 +17,13 @@ module.exports = {
   rules: {
     'no-console': 'off',
     'no-debugger': 'off',
-    'space-before-function-paren': 0
+    'space-before-function-paren': 0,
+    'vue/no-parsing-error': [2, {
+      'x-invalid-end-tag': false
+    }]
   },
 
-  'extends': [
+  extends: [
     'plugin:vue/recommended',
     '@vue/standard'
   ]

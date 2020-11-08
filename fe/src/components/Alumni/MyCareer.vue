@@ -3,7 +3,7 @@
     <el-card style="width:94%; margin-left:3%;" v-if="isShow">
       <h3 style="text-align:center;">我的毕业去向</h3>
       <!-- <div style="hei"></div> -->
-      <el-divider></el-divider>
+      <el-divider />
       <el-form
         :label-position="labelPosition"
         label-width="100px"

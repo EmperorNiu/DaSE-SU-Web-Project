@@ -1,15 +1,29 @@
 <template>
   <div>
-    <div class="blog-intro-container" v-for="blogIntro in blogs" v-bind:key="blogIntro.BlogIds">
+    <div
+      v-for="blogIntro in blogs"
+      :key="blogIntro.BlogIds"
+      class="blog-intro-container"
+    >
       <div class="info">
-        <div class="title">{{blogIntro.title}}</div>
-        <div class="author">作者：{{blogIntro.author_name}}</div>
+        <div class="title">
+          {{ blogIntro.title }}
+        </div>
+        <div class="author">
+          作者：{{ blogIntro.author_name }}
+        </div>
       </div>
       <!-- <div class="recommend">{{blogIntro.introduction}}</div> -->
       <div class="statistics">
-        <div class="comment-num">收藏数：{{blogIntro.star_times}}</div>
-        <div class="view-num">观看人数： {{blogIntro.read_times}}</div>
-        <div class="view-num">赞： {{blogIntro.thumbs_times}}</div>
+        <div class="comment-num">
+          收藏数：{{ blogIntro.star_times }}
+        </div>
+        <div class="view-num">
+          观看人数： {{ blogIntro.read_times }}
+        </div>
+        <div class="view-num">
+          赞： {{ blogIntro.thumbs_times }}
+        </div>
         <!-- <div class="view-time">预计观看时间：{{viewTime}}</div> -->
       </div>
     </div>
@@ -18,10 +32,6 @@
 
 <script>
 export default {
-  created() {
-    this.initBlogList()
-    // this.blogs = this.blogs.concat(this.blogIntro)
-  },
   data() {
     return {
       blogs: [],
@@ -36,6 +46,10 @@ export default {
         thumbs_times: 0
       }
     }
+  },
+  created() {
+    this.initBlogList()
+    // this.blogs = this.blogs.concat(this.blogIntro)
   },
   methods: {
     initBlogList() {

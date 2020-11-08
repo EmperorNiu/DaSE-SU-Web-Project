@@ -9,9 +9,9 @@ import WriteBlog from '../components/Blog/WriteBlog.vue'
 import User from '../components/User.vue'
 import Activity from '../components/Activity.vue'
 import Projlist from '../components/Achievement/Projlist.vue'
-import Memlist from '../components/Achievement/Memlist.vue'
+import Myproject from '../components/Achievement/Myproject.vue'
 import Projinfo from '../components/Achievement/Projinfo.vue'
-import Meminfo from '../components/Achievement/Meminfo.vue'
+// import Meminfo from '../components/Achievement/Meminfo.vue'
 import comment from '../components/subcomponents/comment.vue'
 import show1 from '../components/subcomponents/show1.vue'
 import WriteProj from '../components/Achievement/WriteProj.vue'
@@ -36,9 +36,9 @@ const routes = [
       { path: '/user', component: User },
       { path: '/activity', component: Activity },
       { path: '/projlist', component: Projlist },
-      { path: '/memlist', component: Memlist },
+      { path: '/myproject', component: Myproject },
       { path: '/projinfo/:id', component: Projinfo, show1 },
-      { path: '/meminfo/:id', component: Meminfo },
+      // { path: '/meminfo/:id', component: Meminfo },
       { path: '/comment/:id', component: comment },
       { path: '/writeproj', component: WriteProj },
       { path: '/graduatesgo', component: GraduatesGo },
