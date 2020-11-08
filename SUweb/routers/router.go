@@ -37,6 +37,12 @@ func InitRouter() *gin.Engine {
 		blog.GET("getBlog",controlers.GetBlog)
 		blog.POST("publishBlog",controlers.PublishBlog)
 	}
+	achievement := router.Group("/api/achievement")
+	{
+		achievement.GET("get_proj_list",controlers.GetProjectList)
+		achievement.GET("getProjid",controlers.GetProject)
+		achievement.POST("/publishProj",controlers.CreateProject)
+	}
 	return router
 }
 
