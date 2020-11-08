@@ -9,11 +9,7 @@ import 'katex/dist/katex.min.css'
 import axios from 'axios'
 import './lib/mui/css/mui.min.css'
 import './lib/mui/css/icons-extra.css'
-<<<<<<< HEAD
-import './assets/logo.png'
-=======
 import VCalendar from 'v-calendar'
->>>>>>> 11169385d4000c2484ea48ce536943521cf8e807
 // md编辑器插件
 import mavonEditor from 'mavon-editor'
 import 'mavon-editor/dist/css/index.css'
