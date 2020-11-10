@@ -17,7 +17,7 @@ import Meminfo from '../components/Achievement/Meminfo.vue'
 import comment from '../components/subcomponents/comment.vue'
 import show1 from '../components/subcomponents/show1.vue'
 import WriteProj from '../components/Achievement/WriteProj.vue'
-
+import ViewBlog from '../components/Blog/ViewBlog.vue'
 Vue.use(VueRouter)
 
 const routes = [
@@ -29,6 +29,7 @@ const routes = [
     component: Frame,
     redirect: '/home',
     children: [
+      { path: '/testViewBlog',component: ViewBlog}, 
       { path: '/home', component: Home },
       { path: '/blog', component: BlogIntro },
       { path: '/writeblog', component: WriteBlog },

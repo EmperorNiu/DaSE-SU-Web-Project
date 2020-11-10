@@ -5,6 +5,8 @@
     <div class="blog_title">
       标题：
       <el-input placeholder="请输入文章标题" v-model="title" clearable></el-input>
+      标签：
+      <el-input placeholder="请输入标签,以','分隔 " v-model="labels" clearable></el-input>
     </div>
     <mavon-editor v-model="value" :ishljs="true" @save="saveMd" />
     <!-- <div class="button">
@@ -21,7 +23,8 @@ export default {
   data() {
     return {
       md: '',
-      title: ''
+      title: '',
+      lables:''
     }
   },
   methods: {
@@ -31,8 +34,9 @@ export default {
         title: this.title,
         author_id: parseInt(window.sessionStorage.getItem('user_id')),
         author_name: window.sessionStorage.getItem('user_name'),
-        content_html: render,
-        content_md: value
+        content_html: this.render,
+        content_md: this.value,
+        labels: this.labels
       }
       console.log(newBlog)
       this.$http

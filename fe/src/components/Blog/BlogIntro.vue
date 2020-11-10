@@ -32,7 +32,7 @@
     </div>
 <!-- 分页 -->
 <!-- 每页显示5篇 -->
-    <div style="float:left;margin:15px">
+    <!-- <div style="float:left;margin:15px">
 
     <el-switch v-model="value" style="margin-bottom:0px">
     </el-switch>
@@ -41,18 +41,21 @@
       :total="blogNums"
       layout="prev, pager, next">
     </el-pagination>
-    </div>
+    </div> -->
     
   </div>
 </template>
 
+
 <script>
+
 export default {
   created() {
     this.initBlogList()
     this.getBlogNums()
     // this.blogs = this.blogs.concat(this.blogIntro)
-  },
+  }
+  ,
   data() {
     return {
       value:false,
@@ -109,7 +112,7 @@ export default {
     // 在稍后看中从数据库中获取之前所存的博客
 
     add(value){
-        this.$$http
+        this.$http
           .post('blog/watchLater',{blogID:value})
           .then(result =>{
             console.log(result)
@@ -131,6 +134,11 @@ export default {
 .blog-intro-container {
   .text {
     font-size: 14px;
+    color: #161515;
+  }
+  .title{
+    margin: 60%;
+    color: #181616;
   }
 
   .item {
