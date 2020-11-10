@@ -29,7 +29,7 @@ const routes = [
     component: Frame,
     redirect: '/home',
     children: [
-      { path: '/testViewBlog',component: ViewBlog}, 
+      { path: '/testViewBlog', component: ViewBlog },
       { path: '/home', component: Home },
       { path: '/blog', component: BlogIntro },
       { path: '/writeblog', component: WriteBlog },

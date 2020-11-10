@@ -5,13 +5,11 @@
       v-for="blogIntro in blogs"
       v-bind:key="blogIntro.blogId"
     >
-    <el-card class="box-card">
+      <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span>{{ blogIntro.title }}</span>
           <!-- <a href=></a> -->
-          <el-button style="float: right; padding: 3px 0" type="text"
-            >阅读</el-button
-          >
+          <el-button style="float: right; padding: 3px 0" type="text">阅读</el-button>
         </div>
         <div class="text item">
           <div class="author">作者：{{ blogIntro.author_name }}</div>
@@ -24,12 +22,13 @@
           </div>
         </div>
         <el-tooltip class="item" effect="dark" content="稍后浏览" placement="left-start">
-          <!-- TODO  -->
-          <!-- 添加到稍后浏览中, 应该加入的该博客的id -->
-        <el-button class="later-item" v-on:click="add(blogIntro.blogId)" type="primary" icon="el-icon-edit" circle></el-button>
-      </el-tooltip>
+            <!-- TODO  -->
+            <!-- 添加到稍后浏览中, 应该加入的该博客的id -->
+          <el-button class="later-item" v-on:click="add(blogIntro.blogId)" type="primary" icon="el-icon-edit" circle></el-button>
+        </el-tooltip>
       </el-card>
     </div>
+  </div>
 <!-- 分页 -->
 <!-- 每页显示5篇 -->
     <!-- <div style="float:left;margin:15px">
@@ -44,16 +43,13 @@
     </div> -->
 </template>
 
-
 <script>
-
 export default {
   created() {
     this.initBlogList()
     this.getBlogNums()
     // this.blogs = this.blogs.concat(this.blogIntro)
-  }
-  ,
+  },
   data() {
     return {
       value: false,

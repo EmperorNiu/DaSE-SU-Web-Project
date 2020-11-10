@@ -2,7 +2,7 @@
 <template>
   <div class="login-container">
     <!-- 背景粒子效果 -->
-    <vue-particles color="#ccc"></vue-particles>
+    <!-- <vue-particles color="#ccc"></vue-particles> -->
     <div class="login-box">
       <!-- 图标区域 -->
       <!-- <div class="avatar-box">

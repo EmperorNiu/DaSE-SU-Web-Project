@@ -18,12 +18,12 @@ import 'mavon-editor/dist/css/index.css'
 import contentmenu from 'v-contextmenu/dist/index.js'
 import 'v-contextmenu/dist/index.css'
 // 背景特效
-import VueParticles from 'vue-particles'
+// import VueParticles from 'vue-particles'
 
 Vue.use(mavonEditor)
 // Vue.use(echarts)
 Vue.use(contentmenu)
-Vue.use(VueParticles)
+// Vue.use(VueParticles)
 Vue.config.productionTip = false
 
 // // 按需引入 引入 ECharts 主模块

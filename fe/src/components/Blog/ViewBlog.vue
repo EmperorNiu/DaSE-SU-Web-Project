@@ -1,6 +1,5 @@
 <template>
-<div class="blog-container">   
-
+<div class="blog-container">
   <div class="title">标题</div>
   <div class="info-box">
     <div class="top-bar">
@@ -10,14 +9,12 @@
     <i class="el-icon-view" ></i>
     <a class="browse-nums">1000</a>
     </div>
-
     <div class="labels">
-        <span  class ="tag">标签:</span>
-        <el-tag type="info">标签一</el-tag>
-        <el-tag type="info">标签二</el-tag>
-        <el-tag type="info">标签三</el-tag>
-        
-        </div>
+      <span  class ="tag">标签:</span>
+      <el-tag type="info">标签一</el-tag>
+      <el-tag type="info">标签二</el-tag>
+      <el-tag type="info">标签三</el-tag>
+    </div>
   </div>
   <div class="content">
     <VueMarkdown :source="mdData" ></VueMarkdown>
@@ -30,64 +27,53 @@
   <!-- <div class="favor"></div> -->
   <!-- 收藏 -->
   <!-- <div class="add"> </div> -->
-  
-  
 </div>
 
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown';
+import VueMarkdown from 'vue-markdown'
 // import comment from '../subcomponents/comment.vue'
 // import show1 from '../subcomponents/show1.vue'
 // 这种方式引入 数据可直接使用
 // import markdownData from './test.md';
 export default {
-    
-   components: {
+  components: {
     VueMarkdown
     // 'comment-box': comment,
     // show1
-    
   },
   data() {
     return {
-            mdData: '# test',
-            browseNums: 0,
-            time:'2000-00-00',
-            title: '',
-            labels: '',
-            author: '',
-            blogID: ''
+      mdData: '# test',
+      browseNums: 0,
+      time: '2000-00-00',
+      title: '',
+      labels: '',
+      author: '',
+      blogID: ''
     }
   },
-  methods:{
-      addBrowseNums(){
-          //后端数据库中browseNums字段自增
-           this.$http
-          .post('blog/addBrowse',{blogID:this.blogID})
-          .then(result =>{
-            console.log(result)
-
-          }
-          )
-          .catch(err=>{
-            console.log(err)
-          } 
-          )
-      }
+  methods: {
+    addBrowseNums() {
+      // 后端数据库中browseNums字段自增
+      this.$http
+        .post('blog/addBrowse', { blogID: this.blogID })
+        .then(result => {
+          console.log(result)
+        })
+        .catch(err => {
+          console.log(err)
+        })
+    }
   }
 }
 </script>
 
 <style lang="less" scoped>
-
-
-
 .blog-container{
 width: 95%;
 height: 95%;
-
 .title{
     font-size: 28px;
     word-wrap: break-word;
@@ -99,11 +85,9 @@ height: 95%;
 
 }
 .info-box{
-    
     position: relative;
     background: #d6d6e4;
     border-radius: 4px;
-    
     .top-bar{
         padding: 10px;
         font-size: 20px;
@@ -117,9 +101,7 @@ height: 95%;
         .time{
             float:left;
             width: 33%;
-            
         }
-    
     }
 
     .labels{
