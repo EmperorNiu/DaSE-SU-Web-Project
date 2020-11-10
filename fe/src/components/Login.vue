@@ -98,6 +98,7 @@ export default {
             window.sessionStorage.setItem('token', res.data.token)
             window.sessionStorage.setItem('user_id', res.data.userId)
             window.sessionStorage.setItem('user_name', res.data.userName)
+            // window.sessionStorage.setItem('user')
             this.$router.push('/home')
           })
           // eslint-disable-next-line handle-callback-err

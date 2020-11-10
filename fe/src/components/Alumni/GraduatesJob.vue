@@ -119,7 +119,16 @@ export default {
     filterHandler(value, row, column) {
       const property = column.property
       return row[property] === value
+    },
+    getAlumniList() {
+      var url = 'alumni/getAlumniList'
+      this.$http.get(url).then((result) => {
+        this.tableData = result.data
+      })
     }
+  },
+  created() {
+    // this.getAlumniList()
   }
 }
 </script>
