@@ -4,13 +4,13 @@
       <el-header>项目标题</el-header>
       <el-header class="th">项目负责人</el-header>
       <el-container>
-        <el-aside width="200px">
+        <el-main>
           项目内容
-        </el-aside>
-        <el-main>项目内容</el-main>
+          <el-button type="primary" disabled>下载</el-button>
+          <el-button type="primary" disabled>申请授权</el-button>
+        </el-main>
       </el-container>
     </el-container>
-
     <!-- <div class="proj-info-container">
       <div class="info">
         <div class="title">
@@ -61,11 +61,11 @@ export default {
     return {
       id: this.$route.params.id, // 将 URL 地址中传递过来的 Id值，挂载到 data上，方便以后调用
       projinfo: {
-        proj_id: '',
-        leader: '',
-        members: [],
-        proj_name: '',
-        proj_content: ''
+        project_id: 0,
+        project_leader: '',
+        project_members: [],
+        project_name: '',
+        projectDescription: ''
       } // 项目对象
     }
   },
@@ -75,9 +75,9 @@ export default {
   methods: {
     getProjInfo() {
       // 获取项目详情
-      this.$http.get(`/getProjid?userid=${this.id}`).then(result => {
+      this.$http.get(`project/getProject?userid=${this.id}`).then(result => {
         if (result.body.message === 'success') {
-          this.projinfo = result.body.project[this.id]
+          this.projinfo = result.body.project
         } else {
           // Toast('获取项目失败！')
         }

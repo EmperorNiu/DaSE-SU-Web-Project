@@ -1,34 +1,49 @@
 <template>
   <div>
     <el-table
-      :data="tableData"
+      :data="the_table"
       style="width: 100%"
+      height="300"
     >
       <el-table-column
-        prop="name"
         label="项目名称"
+        prop="proj_name"
         width="180"
       />
+      </el-table-column>
       <el-table-column
-        prop="leader"
         label="项目负责人"
+        prop="leader"
+        width="180"
       />
-      <el-table-column>
+      </el-table-column>
+      <el-table-column
+        label="项目内容"
+        width="150"
+      />
+        <template slot="header" slot-scope="scope">
+          <!-- <el-input
+            v-model="search"
+            size="mini"
+            placeholder="输入关键字搜索"/> -->
+            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+        </template>
+       <!-- <template slot-scope="scope">
+         <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
         <el-button
-          size="mini"
-          @click="cimsInputClick"
+        size="mini"
+        @click="cimsInputClick (scope.row.$proj_name)"
         >
-          项目内容
+          查看项目内容
         </el-button>
-        <!-- <el-button type="info" disabled>信息按钮</el-button> -->
+       </template> -->
       </el-table-column>
     </el-table>
     <!-- <div>
     <div class="proj-intro-container" v-for="table_intro_Data in the_table" v-bind:key="table_intro_Data.proj_id">
       <div class="intro-info">
-        <div class="title">{{table_intro_Data.proj_name}}</div>
+        <div class="title">项目名称：{{table_intro_Data.proj_name}}</div>
         <div class="author">负责人：{{table_intro_Data.leader}}</div>
-        <div class="others">其他成员：{{table_intro_Data.members}}</div>
       </div>
     </div>
   </div> -->
@@ -36,90 +51,63 @@
 </template>
 
 <script>
-// import { Toast } from 'mint-ui'
-
-// export default {
-//   data() {
-//     return {
-//       projlist: [] // 项目列表
-//     }
-//   },
-//   created() {
-//     this.getProjList()
-//   },
-//   methods: {
-//     getProjList() {
-//       // 获取项目列表
-//       this.$http.get('/getProjList').then(result => {
-//         if (result.body.message === 'success') {
-//           // 如果没有失败，应该把数据保存到 data 上
-//           this.projlist = result.body.project
-//         } else {
-//           Toast('获取项目列表失败！')
-//         }
-//       })
-//     }
-//   }
-// }
-// export default {
-//   data() {
-//     return {
-//       the_table: [],
-//       table_intro_Data: [
-//         {
-//           proj_id: '',
-//           leader: '',
-//           members: [],
-//           proj_name: ''
-//         }
-//       ]
-//     }
-//   },
-//   methods: {
-//     GetStats() {
-//       var url = 'Achievement/get_proj_List'
-//       this.$http
-//         .get(url)
-//         .then((result) => {
-//           // console.log(result)
-//           this.the_table = result.data.proj
-//           // this.circleUrl = this.profile.avatar_url
-//         })
-//         .catch((err) => {
-//           console.log(err)
-//         })
-//     }
-//   }
-// }
 export default {
   data() {
     return {
-      tableData: [{
-        // date: '2016-05-02',
-        name: '王小虎',
-        leader: '上海市普陀区金沙江路 1518 弄'
-      }, {
-        // date: '2016-05-04',
-        name: '王小虎',
-        leader: '上海市普陀区金沙江路 1517 弄'
-      }, {
-        // date: '2016-05-01',
-        name: '王小虎',
-        leader: '上海市普陀区金沙江路 1519 弄'
-      }, {
-        // date: '2016-05-03',
-        name: '王小虎',
-        leader: '上海市普陀区金沙江路 1516 弄'
-      }]
+      the_table: []
     }
   },
+  mounted() {
+    this.initProjList()
+  },
   methods: {
-    cimsInputClick () {
-      // window.location.href = '/projinfo/1'
-      this.$router.push('/projinfo/1')
+    initProjList() {
+      var url = 'project/getProjectList'
+      this.$http
+        .get(url)
+        .then((result) => {
+          // console.log(result)
+          this.the_table = result.data.proj
+          console.log(this.the_table)
+        })
+        .catch((err) => {
+          console.log(err)
+        })
+    },
+    cimsInputClick (url) {
+      this.$router.push('/projinfo/' + url)
     }
   }
 }
+// export default {
+//   data() {
+//     return {
+//       tableData: [{
+//         // date: '2016-05-02',
+//         name: '王小虎',
+//         leader: '上海市普陀区金沙江路 1518 弄'
+//       }, {
+//         // date: '2016-05-04',
+//         name: '王小虎',
+//         leader: '上海市普陀区金沙江路 1517 弄'
+//       }, {
+//         // date: '2016-05-01',
+//         name: '王小虎',
+//         leader: '上海市普陀区金沙江路 1519 弄'
+//       }, {
+//         // date: '2016-05-03',
+//         name: '王小虎',
+//         leader: '上海市普陀区金沙江路 1516 弄'
+//       }]
+//     }
+//   },
+//   methods: {
+//     cimsInputClick () {
+//       // window.loction.href = '/projinfo/1'
+//       this.$router.push('/projinfo/1')
+//     }
+//   }
+// }
 </script>
 
 <style lang="less" scoped>
