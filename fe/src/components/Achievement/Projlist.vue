@@ -10,33 +10,22 @@
         prop="proj_name"
         width="180"
       />
-      </el-table-column>
       <el-table-column
         label="项目负责人"
         prop="leader"
         width="180"
       />
-      </el-table-column>
       <el-table-column
         label="项目内容"
+        prop="proj_id"
         width="150"
-      />
-        <template slot="header" slot-scope="scope">
-          <!-- <el-input
-            v-model="search"
-            size="mini"
-            placeholder="输入关键字搜索"/> -->
-            <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-        </template>
-       <!-- <template slot-scope="scope">
-         <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
-        <el-button
-        size="mini"
-        @click="cimsInputClick (scope.row.$proj_name)"
-        >
+      >
+       <template slot-scope="scope">
+         {{scope.row.$proj_name}}
+        <el-button size="mini" @click="cimsInputClick(scope.row.$proj_name)">
           查看项目内容
         </el-button>
-       </template> -->
+       </template>
       </el-table-column>
     </el-table>
     <!-- <div>
