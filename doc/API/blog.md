@@ -2,6 +2,48 @@
 
 #### URL
 
+GET /blog/getBlogList?page=pageNum
+
+**备注**：每页6篇博客
+
+#### Request
+
+##### Header:
+
+| key   | 类型   | 描述               | 是否可为空 |
+| ----- | ------ | ------------------ | ---------- |
+| token | string | 登录产生的会话标识 | N          |
+
+#### Response
+
+##### Body:
+```json
+{
+  "blogs": [
+      {
+          "id": 0,
+          "title": "",
+          "author": "",
+          "create_time": "",
+          "tags": [],
+          "read_times": 0,
+          "short_intro": ""  
+      }
+  ]
+}
+```
+
+##### 属性说明：
+
+| 变量名      | 类型   | 描述     | 是否可为空 |
+| ----------- | ------ | -------- | ---------- |
+| read_times  | int    | 阅读数   | N          |
+| short_intro | string | 博文简介 | Y          |
+
+## 博客首页
+
+#### URL
+
 GET /blog/first?page=pageNum
 
 #### Request

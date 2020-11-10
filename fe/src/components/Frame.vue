@@ -2,8 +2,8 @@
   <el-container class="home-container">
     <el-header height="80px">
       <!-- <div style="width:100%"> -->
-      <div class="left-part">
-        <img src="#" />
+      <div class="left-part" style="margin-left:15px;">
+        <img src="../assets/logo.png" style="height:30px;width:30px;"/>
         <span>DaSE SU</span>
       </div>
 
