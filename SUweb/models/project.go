@@ -10,11 +10,12 @@ type Project struct {
 	Members            []Member `gorm:"many2many:project_members"`
 	Tutor              Tutor    `gorm:"ForeignKey:TutorId"`
 	TutorId            int
+	Url                string `json:"url"`
 	Comments           []ProjectComment
 }
 
 type ProjectIntro struct {
-	ProjectId     uint     `json:"proj_id "`
+	ProjectId     uint     `json:"proj_id"`
 	ProjectLeader string   `json:"leader" `
 	Members       []Member `json:"members"`
 	ProjectName   string   `json:"proj_name"`
