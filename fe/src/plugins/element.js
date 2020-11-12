@@ -44,7 +44,7 @@ Vue.use(Backtop)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Upload)
-Vue.use(Notification)
+// Vue.use(Notification)
 Vue.use(Alert)
 Vue.use(Link)
 Vue.prototype.$message = Message

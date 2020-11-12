@@ -125,57 +125,56 @@ export default {
     }
   },
   created: function() {
-    this.$nextTick(() => {
-      // 点击前一个月
-      var prevBtn = document.querySelector(
-        '.el-calendar__button-group .el-button-group>button:nth-child(1)'
-      )
-      prevBtn.addEventListener('click', e => {
-        console.log(this.data)
-        this.$notify({
-          title: '上一月',
-          message: '上个月头天：' + this.value,
-          type: 'success',
-          position: 'top-left'
-        })
-      })
-      // 点击下一个月
-      var nextBtn = document.querySelector(
-        '.el-calendar__button-group .el-button-group>button:nth-child(3)'
-      )
-      nextBtn.addEventListener('click', () => {
-        console.log(this.value)
-        this.$notify({
-          title: '下一月',
-          message: '下个月头天：' + this.value,
-          type: 'warning',
-          position: 'top-left'
-        })
-      })
-      // 点击今天
-      var todayBtn = document.querySelector(
-        '.el-calendar__button-group .el-button-group>button:nth-child(2)'
-      )
-      todayBtn.addEventListener('click', () => {
-        this.$notify.info({
-          title: '今天',
-          message: '今天：' + this.value,
-          position: 'top-left'
-        })
-      })
-    })
+    // this.$nextTick(() => {
+    //   // 点击前一个月
+    //   var prevBtn = document.querySelector(
+    //     '.el-calendar__button-group .el-button-group>button:nth-child(1)'
+    //   )
+    //   prevBtn.addEventListener('click', e => {
+    //     console.log(this.data)
+    //     this.$notify({
+    //       title: '上一月',
+    //       message: '上个月头天：' + this.value,
+    //       type: 'success',
+    //       position: 'top-left'
+    //     })
+    //   })
+    //   // 点击下一个月
+    //   var nextBtn = document.querySelector(
+    //     '.el-calendar__button-group .el-button-group>button:nth-child(3)'
+    //   )
+    //   nextBtn.addEventListener('click', () => {
+    //     console.log(this.value)
+    //     this.$notify({
+    //       title: '下一月',
+    //       message: '下个月头天：' + this.value,
+    //       type: 'warning',
+    //       position: 'top-left'
+    //     })
+    //   })
+    //   // 点击今天
+    //   var todayBtn = document.querySelector(
+    //     '.el-calendar__button-group .el-button-group>button:nth-child(2)'
+    //   )
+    //   todayBtn.addEventListener('click', () => {
+    //     this.$notify.info({
+    //       title: '今天',
+    //       message: '今天：' + this.value,
+    //       position: 'top-left'
+    //     })
+    //   })
+    // })
   },
-  mounted: function() {},
   methods: {
     // 点击日期块
     calendarOnClick(e) {
-      console.log(e)
+      // console.log(e)
       // this.isArrange.push('2020-06-19');
-      this.$notify.error({
-        title: '日历块点击',
-        message: e.day,
-        position: 'top-left'
-      })
+      // this.$notify.error({
+      //   title: '日历块点击',
+      //   message: e.day,
+      //   position: 'top-left'
+      // })
     },
     // 点击信息块
     infoOnClick() {

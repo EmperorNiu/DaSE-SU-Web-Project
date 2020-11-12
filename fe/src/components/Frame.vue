@@ -3,7 +3,7 @@
     <el-header height="80px">
       <!-- <div style="width:100%"> -->
       <div class="left-part">
-        <img src="#">
+        <img src="../assets/logo.png" style="height:65px; width:65px">
         <span>DaSE SU</span>
       </div>
       <el-menu

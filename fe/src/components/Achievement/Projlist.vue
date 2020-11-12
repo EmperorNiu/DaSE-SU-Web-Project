@@ -10,15 +10,14 @@
         prop="proj_name"
         width="180"
       />
-      </el-table-column>
       <el-table-column
         label="项目负责人"
         prop="leader"
         width="180"
       />
-      </el-table-column>
       <el-table-column
         label="项目内容"
+        prop="proj_id"
         width="150"
       >
         <template slot-scope="scope">
