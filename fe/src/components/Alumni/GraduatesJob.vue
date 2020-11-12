@@ -115,6 +115,9 @@ export default {
       }]
     }
   },
+  created() {
+    // this.getAlumniList()
+  },
   methods: {
     filterHandler(value, row, column) {
       const property = column.property
@@ -126,9 +129,6 @@ export default {
         this.tableData = result.data
       })
     }
-  },
-  created() {
-    // this.getAlumniList()
   }
 }
 </script>

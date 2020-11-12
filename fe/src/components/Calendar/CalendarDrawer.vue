@@ -19,9 +19,16 @@
             :size="activity.size"
             :timestamp="activity.timestamp"
           >
-            <p>{{activity.content}}</p>
-            <div class="demo-image__preview" v-if="activity.url">
-              <el-image style="width: 100px; height: 100px" :src="activity.url" :preview-src-list="activity.srcList"></el-image>
+            <p>{{ activity.content }}</p>
+            <div
+              v-if="activity.url"
+              class="demo-image__preview"
+            >
+              <el-image
+                style="width: 100px; height: 100px"
+                :src="activity.url"
+                :preview-src-list="activity.srcList"
+              />
             </div>
           </el-timeline-item>
         </el-timeline>

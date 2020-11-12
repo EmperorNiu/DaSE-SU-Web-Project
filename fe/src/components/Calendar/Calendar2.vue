@@ -4,14 +4,24 @@
       <el-container>
         <el-main>
           <el-card>
-            <el-calendar v-model="value" :first-day-of-week="7">
-              <template slot="dateCell" slot-scope="{data}">
-                <div slot="reference" class="div-Calendar" @dblclick="saveOnClick">
+            <el-calendar
+              v-model="value"
+              :first-day-of-week="7"
+            >
+              <template
+                slot="dateCell"
+                slot-scope="{data}"
+              >
+                <div
+                  slot="reference"
+                  class="div-Calendar"
+                  @dblclick="saveOnClick"
+                >
                   <p :class="data.isSelected ? 'is-selected' : ''">
                     {{ data.day.split('-').slice(1).join('-') }}
                     <i
                       :class="[data.isSelected ?'el-icon-check':'']"
-                    ></i>
+                    />
                     <!-- <i v-if="_.indexOf(isArrange, data.day)>0" class="el-icon-s-claim"></i> -->
                     <!-- <i class="el-icon-coffee-cup"></i> -->
                   </p>
@@ -20,10 +30,15 @@
             </el-calendar>
           </el-card>
         </el-main>
-        <el-aside width="40%" style="overflow: hidden;">
+        <el-aside
+          width="40%"
+          style="overflow: hidden;"
+        >
           <el-card>
             <div class="el-calendar__header">
-              <div class="el-calendar__title">日程详情</div>
+              <div class="el-calendar__title">
+                日程详情
+              </div>
               <div class="el-calendar__button-group">
                 <div class="el-button-group">
                   <button
@@ -38,12 +53,21 @@
             </div>
             <div class="calendar-info">
               <div style="padding: 15px;">
-                <div role="alert" class="el-alert el-alert--success is-dark" @click="infoOnClick">
+                <div
+                  role="alert"
+                  class="el-alert el-alert--success is-dark"
+                  @click="infoOnClick"
+                >
                   <!-- <i class="el-alert__icon el-icon-success is-big"></i> -->
                   <div class="el-alert__content">
                     <span class="el-alert__title is-bold">2020-06-19 9:00~11:00</span>
-                    <p class="el-alert__description">算法考试</p>
-                    <i class="el-alert__closebtn el-icon-close" @click.stop="infoDel"></i>
+                    <p class="el-alert__description">
+                      算法考试
+                    </p>
+                    <i
+                      class="el-alert__closebtn el-icon-close"
+                      @click.stop="infoDel"
+                    />
                   </div>
                 </div>
                 <!-- <div role="alert" class="el-alert el-alert--info is-dark" @click="infoOnClick">
@@ -77,8 +101,8 @@
         </el-aside>
       </el-container>
     </el-card>
-    <calendarDrawer ref="calendarDrawer"></calendarDrawer>
-    <calendarForm ref="calendarForm"></calendarForm>
+    <calendarDrawer ref="calendarDrawer" />
+    <calendarForm ref="calendarForm" />
   </div>
 </template>
 
