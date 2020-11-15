@@ -6,10 +6,12 @@ import {
   Breadcrumb, BreadcrumbItem, Card, Drawer,
   Radio, RadioGroup, Avatar, Tag, Calendar,
   Backtop, Table, TableColumn, Divider, Upload,
-  Notification, Image, Timeline, TimelineItem,
+  Notification, Image, Timeline, TimelineItem, Tooltip,
   Dialog, Select, Option, Alert, Link, Carousel, CarouselItem
 } from 'element-ui'
 
+Vue.use(Switch)
+Vue.use(Pagination)
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
@@ -49,5 +51,6 @@ Vue.use(CarouselItem)
 // Vue.use(Notification)
 Vue.use(Alert)
 Vue.use(Link)
+Vue.use(Tooltip)
 Vue.prototype.$message = Message
 Vue.prototype.$notify = Notification

@@ -1,18 +1,20 @@
 <template>
   <div>
+    <div class="blog_container">
+
     <div class="blog_title">
       标题：
-      <el-input
-        v-model="title"
-        placeholder="请输入文章标题"
-        clearable
-      />
+      <el-input placeholder="请输入文章标题" v-model="title" clearable></el-input>
+      标签：
+      <el-input placeholder="请输入标签,以','分隔 " v-model="labels" clearable></el-input>
     </div>
-    <mavon-editor
-      v-model="value"
-      :ishljs="true"
-      @save="saveMd"
-    />
+    <mavon-editor v-model="value" :ishljs="true" @save="saveMd" />
+    <!-- <div class="button">
+    上传一个md文件
+    <el-button round @click="upload">上传</el-button>
+    <el-button round @click="submit">提交</el-button>
+    </div> -->
+    </div>
   </div>
 </template>
 
@@ -21,7 +23,8 @@ export default {
   data() {
     return {
       md: '',
-      title: ''
+      title: '',
+      lables: ''
     }
   },
   methods: {
@@ -31,8 +34,9 @@ export default {
         title: this.title,
         author_id: parseInt(window.sessionStorage.getItem('user_id')),
         author_name: window.sessionStorage.getItem('user_name'),
-        content_html: render,
-        content_md: value
+        content_html: this.render,
+        content_md: this.value,
+        labels: this.labels
       }
       // console.log(newBlog)
       this.$http
@@ -56,3 +60,15 @@ export default {
   }
 }
 </script>
+
+<style lang="less" scoped>
+.blog_container{
+width: 95%;
+height: 95%;
+.button{
+  display: flex;
+  justify-content: flex-end;
+  padding: 20px 0px;
+}
+}
+</style>
