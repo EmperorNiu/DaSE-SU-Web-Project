@@ -30,12 +30,15 @@ func InitRouter() *gin.Engine {
 	alumni := router.Group("/api/alumni")
 	{
 		alumni.GET("getMemList",controlers.GetMemList)
+		alumni.POST("create",controlers.CreateAlumni)
+		alumni.GET("getInfo",controlers.GetAlumniInfo)
 	}
 	blog := router.Group("/api/blog")
 	{
 		blog.GET("getBlogList",controlers.GetBlogList)
 		blog.GET("getBlog",controlers.GetBlog)
 		blog.POST("publishBlog",controlers.PublishBlog)
+		blog.GET("/getcomments",controlers.GetBlogComments)
 	}
 	achievement := router.Group("/api/achievement")
 	{

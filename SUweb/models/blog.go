@@ -49,3 +49,7 @@ func (blog *Blog) QueryBlog(id string) error {
 func (blog *Blog) CreateBlog() error {
 	return db.Create(&blog).Error
 }
+
+func QueryBlogComments(comments *[]BlogComment, project_id string) error {
+	return db.Where("blog_id = ?", project_id).Find(&comments).Error
+}

@@ -39,3 +39,13 @@ func PublishBlog(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": "success"})
 	}
 }
+
+func GetBlogComments(c *gin.Context) {
+	var comments []models.BlogComment
+	var project_id = c.Query("project_id")
+	if err := models.QueryBlogComments(&comments, project_id); err != nil {
+		c.JSON(http.StatusBadGateway, gin.H{"status": e.ERROR_EXIST_NAME, "message": e.GetMsg(e.ERROR_EXIST_NAME)})
+	} else {
+		c.JSON(http.StatusOK, gin.H{"message": "success", "comments": comments})
+	}
+}
