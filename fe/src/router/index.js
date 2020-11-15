@@ -58,7 +58,7 @@ const router = new VueRouter({
   routes
 })
 
-路由导航守卫
+// 路由导航守卫
 router.beforeEach((to, from, next) => {
   if (to.path === '/login') return next()
   const token = window.sessionStorage.getItem('token')

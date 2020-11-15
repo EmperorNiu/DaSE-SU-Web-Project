@@ -4,8 +4,8 @@ import {
   Menu, MenuItem, MenuItemGroup, Submenu,
   Container, Header, Main, Aside, Col, Row,
   Breadcrumb, BreadcrumbItem, Card, Drawer,
-  Radio, RadioGroup, Avatar, Tag, Calendar,
-  Backtop, Table, TableColumn, Divider, Upload,
+  Radio, RadioGroup, Avatar, Tag, Calendar, Pagination,
+  Backtop, Table, TableColumn, Divider, Upload, Switch,
   Notification, Image, Timeline, TimelineItem, Tooltip,
   Dialog, Select, Option, Alert, Link, Carousel, CarouselItem
 } from 'element-ui'

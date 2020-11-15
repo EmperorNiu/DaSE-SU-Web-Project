@@ -67,10 +67,6 @@ export default {
       blogNums: 1
     }
   },
-  created() {
-    this.initBlogList()
-    // this.blogs = this.blogs.concat(this.blogIntro)
-  },
   methods: {
     initBlogList() {
       this.$http
