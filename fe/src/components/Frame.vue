@@ -44,7 +44,9 @@
           <el-menu-item index="/writeproj">
             写项目
           </el-menu-item>
-          <el-menu-item index="/myproject">我的项目</el-menu-item>
+          <el-menu-item index="/myproject">
+            我的项目
+          </el-menu-item>
         </el-submenu>
         <el-submenu index="/alumni">
           <template slot="title">

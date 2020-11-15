@@ -1,24 +1,42 @@
 <template>
   <div>
-    <el-calendar v-model="value" id="calendar">
+    <el-calendar
+      id="calendar"
+      v-model="value"
+    >
       <template
         slot="dateCell"
         slot-scope="{data}"
-        >
-          <div>
-            <div class="calendar-day">{{ data.day.split('-').slice(2).join('-') }}</div>
-            <div v-for="item in calendarData" :key="item">
-              <div v-if="(item.months).indexOf(data.day.split('-').slice(1)[0])!=-1">
-                <div v-if="(item.days).indexOf(data.day.split('-').slice(2).join('-'))!=-1" @click="open">
-                  <el-tooltip class="item" effect="dark" :content="item.things" placement="right">
-                    <div class="is-selected">{{item.things}}</div>
-                  </el-tooltip>
-                </div>
-                <div v-else></div>
-              </div>
-              <div v-else></div>
-            </div>
+      >
+        <div>
+          <div class="calendar-day">
+            {{ data.day.split('-').slice(2).join('-') }}
           </div>
+          <div
+            v-for="item in calendarData"
+            :key="item"
+          >
+            <div v-if="(item.months).indexOf(data.day.split('-').slice(1)[0])!=-1">
+              <div
+                v-if="(item.days).indexOf(data.day.split('-').slice(2).join('-'))!=-1"
+                @click="open"
+              >
+                <el-tooltip
+                  class="item"
+                  effect="dark"
+                  :content="item.things"
+                  placement="right"
+                >
+                  <div class="is-selected">
+                    {{ item.things }}
+                  </div>
+                </el-tooltip>
+              </div>
+              <div v-else />
+            </div>
+            <div v-else />
+          </div>
+        </div>
       </template>
     </el-calendar>
   </div>
@@ -27,11 +45,6 @@
 <script>
 // import Highlighter from 'web-highlighter'
 export default {
-  mounted() {
-  },
-  destroyed() {
-    // highlighter.stop()
-  },
   data() {
     return {
       calendarData: [
@@ -42,6 +55,11 @@ export default {
       ],
       value: new Date()
     }
+  },
+  mounted() {
+  },
+  destroyed() {
+    // highlighter.stop()
   },
   methods: {
     handleClose(done) {

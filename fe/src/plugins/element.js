@@ -7,7 +7,7 @@ import {
   Radio, RadioGroup, Avatar, Tag, Calendar,
   Backtop, Table, TableColumn, Divider, Upload,
   Notification, Image, Timeline, TimelineItem,
-  Dialog, Select, Option, Alert, Carousel, CarouselItem
+  Dialog, Select, Option, Alert, Link, Carousel, CarouselItem
 } from 'element-ui'
 
 Vue.use(Button)
@@ -48,5 +48,6 @@ Vue.use(Carousel)
 Vue.use(CarouselItem)
 // Vue.use(Notification)
 Vue.use(Alert)
+Vue.use(Link)
 Vue.prototype.$message = Message
 Vue.prototype.$notify = Notification

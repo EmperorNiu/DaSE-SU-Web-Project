@@ -20,12 +20,14 @@
         prop="proj_id"
         width="150"
       >
-       <template slot-scope="scope">
-         {{scope.row.$proj_name}}
-        <el-button size="mini" @click="cimsInputClick(scope.row.$proj_name)">
-          查看项目内容
-        </el-button>
-       </template>
+        <template slot-scope="scope">
+          <el-button
+            size="mini"
+            @click="cimsInputClick (scope.row)"
+          >
+            查看项目内容
+          </el-button>
+        </template>
       </el-table-column>
     </el-table>
     <!-- <div>
@@ -57,14 +59,14 @@ export default {
         .then((result) => {
           // console.log(result)
           this.the_table = result.data.proj
-          console.log(this.the_table)
+          // console.log(this.the_table)
         })
         .catch((err) => {
           console.log(err)
         })
     },
-    cimsInputClick (url) {
-      this.$router.push('/projinfo/' + url)
+    cimsInputClick (row) {
+      this.$router.push('/projinfo/' + row.proj_id)
     }
   }
 }
