@@ -1,12 +1,6 @@
 <template>
   <div>
     <el-card style="width:94%; margin-left:3%;">
-      <el-alert
-        title="在这里上传的目的，是为了您的项目能够更好地发展的同时，给后届的学弟学妹一个学习的机会。感谢您所做出的贡献！"
-        type="success"
-        :closable="false"
-      />
-      <!-- <p></p> -->
       <el-form
         :inline="true"
         :model="form"
@@ -47,35 +41,6 @@
             rows="10"
           />
         </el-form-item>
-        <!-- <el-form-item
-          label="授权方式"
-          style="margin-left:210px;"
-        >
-          <el-select
-            placeholder="请选择授权方式"
-          >
-            <el-option
-              label="完全开源"
-              value="1"
-            >
-            </el-option>
-            <el-option
-              label="私下联络授权"
-              value="2"
-            >
-            </el-option>
-            <el-option
-              label="付费授权"
-              value="3"
-            >
-            </el-option>
-            <el-option
-              label="按时限授权"
-              value="4"
-            >
-            </el-option>
-          </el-select>
-        </el-form-item> -->
         <el-form-item
           label="项目链接"
           style="margin-left:210px;"
@@ -114,53 +79,41 @@
 export default {
   data() {
     return {
+      id: this.$route.params.id,
       form: {
         project_name: '',
         project_leader: '',
         url: '',
         ProjectDescription: ''
-        // : ''
+      },
+      projinfo: {
+        project_name: '',
+        project_leader: '',
+        url: '',
+        ProjectDescription: ''
       }
     }
   },
+  created() {
+    this.Getproj()
+  },
   methods: {
+    Getproj() {
+      this.$http.get(`project/getProject?userid=${this.id}`).then(result => {
+        console.log(result)
+        if (result.data.message === 'success') {
+          this.form = result.data.project
+          console.log(this.form)
+        } else {
+          // Toast('获取项目失败！')
+        }
+      })
+    },
     SubmitProj() {
-      //   console.log('this is render' + render)
-      // var newProj = {
-      //   author_id: parseInt(window.sessionStorage.getItem('user_id')),
-      //   author_name: window.sessionStorage.getItem('user_name'),
-      //   title: this.title,
-      //   // 标题
-      //   author: this.author,
-      //   // 作者
-      //   filelink: this.filelink,
-      //   // 链接
-      //   desc: this.desc,
-      //   // 内容
-      //   region: this.region
-      //   // 授权方式
-      // }
-      // console.log(newProj)
-      // this.$http
-      //   .post('project/createProject', newProj, {
-      //     headers: {
-      //       token: window.sessionStorage.getItem('token')
-      //     }
-      //   })
-      //   .then(result => {
-      //     this.$message({
-      //       message: '发布成功',
-      //       type: 'success'
-      //     })
-      //   })
-      //   // eslint-disable-next-line handle-callback-err
-      //   .catch(err => {
-      //     this.$message('发布失败')
-      //   })
-      // window.sessionStorage.setItem('project')
-      console.log(this.form)
+      this.projinfo = this.form
+      console.log(this.projinfo)
       var url = 'project/createProject'
-      this.$http.post(url, this.form, {
+      this.$http.post(url, this.projinfo, {
         headers: {
           token: window.sessionStorage.getItem('token')
         }

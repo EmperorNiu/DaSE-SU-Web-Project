@@ -44,6 +44,7 @@
         javascript
       </el-tag>
     </div>
+    <el-button >添加个人标签</el-button>
     <div
       id="my_chart"
       style="height:500px;"
@@ -59,57 +60,18 @@ export default {
       circleUrl:
         'https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png',
       username: '开发者X7',
-      major: '数据科学与工程学院'
+      major: '数据科学与工程学院',
+      label: ''
     }
   },
   mounted() {
     this.initCharts()
   },
   methods: {
-    // initCharts() {
-    //   var chart = this.$echarts.init(document.getElementById('my_chart'))
-  //     var option = {
-  //       title: {
-  //         text: 'ECharts 入门示例'
-  //       },
-  //       tooltip: {},
-  //       xAxis: {
-  //         data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-  //       },
-  //       yAxis: {},
-  //       series: [
-  //         {
-  //           name: '销量',
-  //           type: 'bar',
-  //           data: [5, 20, 36, 10, 10, 20]
-  //         }
-  //       ]
-  //     }
-
-    //     chart.setOption(option)
-    //   },
-    //   setOptions() {
-    //     this.chart.setOption({
-    //       title: {
-    //         text: 'ECharts 入门示例'
-    //       },
-    //       tooltip: {},
-    //       xAxis: {
-    //         data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
-    //       },
-    //       yAxis: {},
-    //       series: [
-    //         {
-    //           name: '销量',
-    //           type: 'bar',
-    //           data: [5, 20, 36, 10, 10, 20]
-    //         }
-    //       ]
-    //     })
-    //   }
-    // }
-
     initCharts() {
+      this.username = sessionStorage.getItem('user_name')
+      this.label = sessionStorage.getItem('user_label')
+      console.log(this.label)
       var myChart = this.$echarts.init(document.getElementById('my_chart'))
       var option = {
         legend: {},

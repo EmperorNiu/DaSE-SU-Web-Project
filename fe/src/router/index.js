@@ -15,6 +15,7 @@ import Projinfo from '../components/Achievement/Projinfo.vue'
 import comment from '../components/subcomponents/comment.vue'
 import show1 from '../components/subcomponents/show1.vue'
 import WriteProj from '../components/Achievement/WriteProj.vue'
+import Editproject from '../components/Achievement/Editproject.vue'
 import GraduatesGo from '../components/Alumni/GraduatesGo.vue'
 import GraduatesJob from '../components/Alumni/GraduatesJob.vue'
 import MyCareer from '../components/Alumni/MyCareer.vue'
@@ -41,6 +42,7 @@ const routes = [
       // { path: '/meminfo/:id', component: Meminfo },
       { path: '/comment/:id', component: comment },
       { path: '/writeproj', component: WriteProj },
+      { path: '/editproj/:id', component: Editproject },
       { path: '/graduatesgo', component: GraduatesGo },
       { path: '/graduatesjob', component: GraduatesJob },
       { path: '/mycareer', component: MyCareer }
@@ -53,11 +55,11 @@ const router = new VueRouter({
 })
 
 // 路由导航守卫
-router.beforeEach((to, from, next) => {
-  if (to.path === '/login') return next()
-  const token = window.sessionStorage.getItem('token')
-  if (!token) return next('/login')
-  next()
-})
+// router.beforeEach((to, from, next) => {
+//   if (to.path === '/login') return next()
+//   const token = window.sessionStorage.getItem('token')
+//   if (!token) return next('/login')
+//   next()
+// })
 
 export default router

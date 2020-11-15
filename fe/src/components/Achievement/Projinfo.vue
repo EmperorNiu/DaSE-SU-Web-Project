@@ -7,7 +7,7 @@
       </el-header>
       <el-container>
         <el-main>
-          {{ projinfo.ProjectDescription}}
+          {{ projinfo.ProjectDescription }}
           <el-button
             type="primary"
             @click="Download(projinfo.url)"
@@ -15,12 +15,6 @@
             下载
           </el-button>
           <!-- <el-link href={{ projinfo.url }}>下载链接</el-link> -->
-          <el-button
-            type="primary"
-            @click="Apply(projinfo.project_id)"
-          >
-            申请授权
-          </el-button>
         </el-main>
       </el-container>
     </el-container>
