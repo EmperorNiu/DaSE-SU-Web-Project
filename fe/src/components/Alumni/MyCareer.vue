@@ -302,6 +302,15 @@ export default {
         })
       })
     },
+    updateCareer() {
+      var url = 'alumni/update'
+      this.$http.post(url, this.alumniForm).then((result) => {
+        this.$message({
+          message: '上传成功',
+          type: 'success'
+        })
+      })
+    },
     modification() {
       this.isShow = true
       this.alumniForm = this.alumniInfo
