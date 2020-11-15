@@ -13,38 +13,42 @@ func InitRouter() *gin.Engine {
 	{
 		auth.GET("/test", func(context *gin.Context) {
 			context.JSON(200, gin.H{
-				"message":"test",
+				"message": "test",
 			})
 		})
-		auth.POST("/register",controlers.Register)
-		auth.POST("/login",controlers.Login)
+		auth.POST("/register", controlers.Register)
+		auth.POST("/login", controlers.Login)
 	}
 	project := router.Group("/api/project")
 	{
-		project.POST("/createProject",controlers.CreateProject)
-		project.GET("/getProjectList",controlers.GetProjectList)
-		project.GET("/getProject",controlers.GetProject)
-		project.POST("/comment",controlers.CommentProject)
-		project.GET("/getcomments",controlers.GetComments)
+		project.POST("/createProject", controlers.CreateProject)
+		project.GET("/getProjectList", controlers.GetProjectList)
+		project.GET("/getProject", controlers.GetProject)
+		project.POST("/comment", controlers.CommentProject)
+		project.GET("/getcomments", controlers.GetComments)
 	}
 	alumni := router.Group("/api/alumni")
 	{
-		alumni.GET("getMemList",controlers.GetMemList)
-		alumni.POST("create",controlers.CreateAlumni)
-		alumni.GET("getInfo",controlers.GetAlumniInfo)
+		alumni.GET("getMemList", controlers.GetMemList)
+		alumni.POST("create", controlers.CreateAlumni)
+		alumni.GET("getInfo", controlers.GetAlumniInfo)
 	}
 	blog := router.Group("/api/blog")
 	{
-		blog.GET("getBlogList",controlers.GetBlogList)
-		blog.GET("getBlog",controlers.GetBlog)
-		blog.POST("publishBlog",controlers.PublishBlog)
-		blog.GET("/getcomments",controlers.GetBlogComments)
+		blog.GET("getBlogList", controlers.GetBlogList)
+		blog.GET("getBlog", controlers.GetBlog)
+		blog.POST("publishBlog", controlers.PublishBlog)
+		blog.GET("getcomments", controlers.GetBlogComments)
+		blog.POST("watchLater", controlers.WatchLater)
+		blog.GET("getBlogNums", controlers.GetBlogNums)
+		blog.GET("getMyBlogList", controlers.GetMyBlogList)
+		blog.GET("getWatchLaterList", controlers.GetWathLaterList)
 	}
 	achievement := router.Group("/api/achievement")
 	{
-		achievement.GET("get_proj_list",controlers.GetProjectList)
-		achievement.GET("getProjid",controlers.GetProject)
-		achievement.POST("/publishProj",controlers.CreateProject)
+		achievement.GET("get_proj_list", controlers.GetProjectList)
+		achievement.GET("getProjid", controlers.GetProject)
+		achievement.POST("publishProj", controlers.CreateProject)
 	}
 	return router
 }
