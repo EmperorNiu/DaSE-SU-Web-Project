@@ -30,6 +30,7 @@ const routes = [
     redirect: '/home',
     children: [
       { path: '/testViewBlog',component: ViewBlog}, 
+      { path: '/viewblog',component: ViewBlog}, 
       { path: '/home', component: Home },
       { path: '/blog', component: BlogIntro },
       { path: '/writeblog', component: WriteBlog },

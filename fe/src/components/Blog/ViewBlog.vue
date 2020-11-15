@@ -52,20 +52,31 @@ export default {
   },
   data() {
     return {
+        blog:{
             mdData: '# test',
             browseNums: 0,
             time:'2000-00-00',
             title: '',
             labels: '',
             author: '',
-            blogID: ''
+            blogId: ''
+        }
     }
   },
   methods:{
+      initBlog(){
+          this.$http
+            .get('blog/getBlogById',{params:{blogId:this.$route.query.id}})
+            .then(
+                result => {
+                    this.blog = result.data.blog
+          }
+        )
+      },
       addBrowseNums(){
           //后端数据库中browseNums字段自增
            this.$http
-          .post('blog/addBrowse',{blogID:this.blogID})
+          .post('blog/addBrowse',{blogId:this.blogId})
           .then(result =>{
             console.log(result)
 

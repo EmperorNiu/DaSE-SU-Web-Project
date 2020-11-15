@@ -8,10 +8,8 @@
     <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span>{{ blogIntro.title }}</span>
-          <!-- <a href=></a> -->
-          <el-button style="float: right; padding: 3px 0" type="text"
-            >阅读</el-button
-          >
+          <el-button style="float: right; padding: 3px 0" type="text" v-on:click="toDetail(blogIntro.blogId)">阅读</el-button>
+
         </div>
         <div class="text item">
           <div class="author">作者：{{ blogIntro.author_name }}</div>
@@ -30,6 +28,7 @@
       </el-tooltip>
       </el-card>
     </div>
+  </div>
 <!-- 分页 -->
 <!-- 每页显示5篇 -->
     <!-- <div style="float:left;margin:15px">
@@ -46,18 +45,37 @@
 
 
 <script>
-
+// import viewBlog from './ViewBlog.vue'
 export default {
   created() {
-    this.initBlogList()
-    this.getBlogNums()
+    // this.initBlogList()
+    // this.getBlogNums()
     // this.blogs = this.blogs.concat(this.blogIntro)
   }
   ,
   data() {
     return {
       value: false,
-      blogs: [],
+      blogs: [{
+        blogId: 0,
+        title: '深度学习优化器',
+        author_name: 'Dylan Niu',
+        introduction:
+          '随机梯度下降 SGD、动量 Momentum、Momentum+SGD算法、牛顿动量 Nesterov、Nesterov+SGD算法、AdaGrad',
+        star_times: 0,
+        read_times: 0,
+        thumbs_times: 0
+      },{
+        blogId: 0,
+        title: '深度学习优化器',
+        author_name: 'Dylan Niu',
+        introduction:
+          '随机梯度下降 SGD、动量 Momentum、Momentum+SGD算法、牛顿动量 Nesterov、Nesterov+SGD算法、AdaGrad',
+        star_times: 0,
+        read_times: 0,
+        thumbs_times: 0
+      },
+      ],
       blogIntro: {
         blogId: 0,
         title: '深度学习优化器',
@@ -72,6 +90,10 @@ export default {
     }
   },
   methods: {
+    toDetail(blogId){
+      
+    this.$router.push({path:'/viewblog',query:{blogId}})
+    },
     initBlogList() {
       this.$http
         .get('blog/getBlogList', {
@@ -101,7 +123,7 @@ export default {
     // 在稍后看中从数据库中获取之前所存的博客
     add(value) {
       this.$$http
-        .post('blog/watchLater', { blogID: value })
+        .post('blog/watchLater', { blogId: value , userId: sessionStorage.getItem('user_id') })
         .then(result => {
           console.log(result)
         })
