@@ -53,8 +53,11 @@ func QueryProjectList(projects *[]Project) error {
 }
 
 func (project *Project) Create() error {
-	err := db.Create(&project).Error
-	return err
+	if db.Where("project_name = ?",project.ProjectName).Error!=nil {
+		return db.Update(project).Error
+	}else {
+		return db.Create(&project).Error
+	}
 }
 
 func (project *Project) Insert() error {

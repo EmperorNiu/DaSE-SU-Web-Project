@@ -23,9 +23,13 @@ func QueryAlumni(alumnis *[]Alumni) error {
 }
 
 func (alumni *Alumni) CreateAlumni() error {
-	return db.Create(&alumni).Error
+	if db.Where("name = ?",alumni.Name).Error!=nil {
+		return db.Update(alumni).Error
+	}else {
+		return db.Create(&alumni).Error
+	}
 }
 
 func (alumni *Alumni) QueryAlumni(username string) error {
-	return db.Where("username = ?",username).First(&alumni).Error
+	return db.Where("name = ?",username).First(&alumni).Error
 }
