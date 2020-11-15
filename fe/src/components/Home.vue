@@ -1,30 +1,19 @@
 <template>
   <div>
     <el-calendar v-model="date_value" />
-
-    <<<<<<< HEAD
     <div
       id="ss"
       v-contextmenu:contextmenu
       v-html="ss"
     />
-    <el-drawer
-      id="ss"
-      v-contextmenu:contextmenu="=&quot;=====&quot;"
-      <!--
-      <div
-      v-html="ss"
-    />
-  </div> -->
+  </div>
   <!-- <el-drawer
->>>>>>> 11169385d4000c2484ea48ce536943521cf8e807
-      title="我是标题"
-      :visible.sync="drawer"
-      :direction="direction"
-      :before-close="handleClose"
-    >
+    title="我是标题"
+    :visible.sync="drawer"
+    :direction="direction"
+    :before-close="handleClose"
+  >
       <span>我来啦!</span>
-<<<<<<< HEAD
       <el-input
         v-model="textarea"
         type="textarea"
@@ -44,17 +33,8 @@
         菜单3
       </v-contextmenu-item>
     </v-contextmenu>
-=======
       <el-input type="textarea" :rows="2" placeholder="请输入内容" v-model="textarea"></el-input>
     </el-drawer> -->
-
-  <!-- <v-contextmenu ref="contextmenu">
-      <v-contextmenu-item @click="handleClick">菜单1</v-contextmenu-item>
-      <v-contextmenu-item @click="handleClick">菜单2</v-contextmenu-item>
-      <v-contextmenu-item @click="handleClick">菜单3</v-contextmenu-item>
-    </v-contextmenu> -->
-  >>>>>>> 11169385d4000c2484ea48ce536943521cf8e807
-  </div>
 </template>
 
 <script>

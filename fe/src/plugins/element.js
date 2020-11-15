@@ -4,13 +4,14 @@ import {
   Menu, MenuItem, MenuItemGroup, Submenu,
   Container, Header, Main, Aside, Col, Row,
   Breadcrumb, BreadcrumbItem, Card, Drawer,
-  Radio, RadioGroup, Avatar, Tag, Calendar,
-  Backtop, Table, TableColumn, Divider, Upload,
-  Notification, Image, Timeline, TimelineItem,
-  Dialog, Select, Option, Alert, Link,
-  Carousel, CarouselItem
+  Radio, RadioGroup, Avatar, Tag, Calendar, Pagination,
+  Backtop, Table, TableColumn, Divider, Upload, Switch,
+  Notification, Image, Timeline, TimelineItem, Tooltip,
+  Dialog, Select, Option, Alert, Link, Carousel, CarouselItem
 } from 'element-ui'
 
+Vue.use(Switch)
+Vue.use(Pagination)
 Vue.use(Button)
 Vue.use(Form)
 Vue.use(FormItem)
@@ -47,9 +48,15 @@ Vue.use(Backtop)
 Vue.use(Table)
 Vue.use(TableColumn)
 Vue.use(Upload)
+Vue.use(Carousel)
+Vue.use(CarouselItem)
 // Vue.use(Notification)
 Vue.use(Alert)
 Vue.use(Link)
+<<<<<<< HEAD
 
+=======
+Vue.use(Tooltip)
+>>>>>>> 6b49027ccc746466779c0ba4a4d1aaf013815cd9
 Vue.prototype.$message = Message
 Vue.prototype.$notify = Notification

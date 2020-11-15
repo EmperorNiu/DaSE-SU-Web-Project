@@ -21,21 +21,11 @@
           Home
         </el-menu-item>
         <el-submenu index="blog">
-          <template slot="title">
-            博客区
-          </template>
-          <el-menu-item index="/blog">
-            看博客
-          </el-menu-item>
-          <el-menu-item index="/writeblog">
-            写博客
-          </el-menu-item>
-          <el-menu-item index="2-3">
-            稍后看
-          </el-menu-item>
-          <el-menu-item index="2-4">
-            我的博客
-          </el-menu-item>
+          <template slot="title">博客区</template>
+          <el-menu-item index="/blog">看博客</el-menu-item>
+          <el-menu-item index="/writeblog">写博客</el-menu-item>
+          <el-menu-item index="/playlist">稍后看</el-menu-item>
+          <el-menu-item index="/myblogs">我的博客</el-menu-item>
         </el-submenu>
         <el-submenu index="achievement">
           <template slot="title">

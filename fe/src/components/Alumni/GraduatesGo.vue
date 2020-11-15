@@ -13,6 +13,7 @@
 export default {
   data() {
     return {
+      cityNum: []
     }
   },
   mounted() {
@@ -608,6 +609,12 @@ export default {
             zlevel: 1
           }
         ]
+      })
+    },
+    getCityNum() {
+      var url = 'alumni/getCityNum'
+      this.$http.get(url).then((result) => {
+        this.cityNum = result.data
       })
     }
   }
