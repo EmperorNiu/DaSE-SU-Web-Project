@@ -113,7 +113,7 @@ export default {
       this.projinfo = this.form
       console.log(this.projinfo)
       var url = 'project/createProject'
-      this.$http.post(url, this.projinfo, {
+      this.$http.put(url, this.projinfo, {
         headers: {
           token: window.sessionStorage.getItem('token')
         }
