@@ -2,10 +2,22 @@
   <div class="cmt-container">
     <h3>发表评论</h3>
     <hr>
-    <textarea placeholder="请输入要评论的内容（最多120字）" maxlength="120"></textarea>
-    <mt-button type="primary" size="large">发表评论</mt-button>
+    <textarea
+      placeholder="请输入要评论的内容（最多120字）"
+      maxlength="120"
+    />
+    <mt-button
+      type="primary"
+      size="large"
+    >
+      发表评论
+    </mt-button>
     <div class="cmt-list">
-      <div class="cmt-item" v-for="item in comments" :key="item.created_at">
+      <div
+        v-for="item in comments"
+        :key="item.created_at"
+        class="cmt-item"
+      >
         <div class="cmt-title">
           用户：{{ item.auth_id }}&nbsp;&nbsp;发表时间：{{ item.created_at }}
         </div>
@@ -14,13 +26,21 @@
         </div>
       </div>
     </div>
-    <mt-button type="danger" size="large" plain @click="getMore">加载更多</mt-button>
+    <mt-button
+      type="danger"
+      size="large"
+      plain
+      @click="getMore"
+    >
+      加载更多
+    </mt-button>
   </div>
 </template>
 
 <script>
 import { Toast } from 'mint-ui'
 export default {
+  props: ['id'],
   data() {
     return {
       projid: 1,
@@ -49,8 +69,7 @@ export default {
       // 加载更多
       this.getComments()
     }
-  },
-  props: ['id']
+  }
 }
 </script>
 

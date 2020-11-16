@@ -1,82 +1,96 @@
+/* eslint-disable */
 <template>
-<div class="blog-container">   
-
-  <div class="title">标题</div>
+<div class="blog-container">
+  <div class="title">{{blog.title}}</div>
   <div class="info-box">
     <div class="top-bar">
-    <a class="author">作者</a>
+    <a class="author">{{blog.author_name}}</a>
     <i class="el-icon-time" style="float:left;"></i>
-    <span class="time">2020-10-10</span>
+    <span class="time">{{blog.created_at}}</span>
     <i class="el-icon-view" ></i>
-    <a class="browse-nums">1000</a>
+    <a class="browse-nums">{{blog.read_times}}</a>
     </div>
-
     <div class="labels">
-        <span  class ="tag">标签:</span>
-        <el-tag type="info">标签一</el-tag>
-        <el-tag type="info">标签二</el-tag>
-        <el-tag type="info">标签三</el-tag>
-        
-        </div>
+      <span  class ="tag">标签:</span>
+
+      <el-tag type="info" v-for="tag in  labels " v-bind:key="tag"> {{tag}}</el-tag>
+      <el-tag type="info">{{labels}}</el-tag>
+      <!-- <el-tag type="info">标签二</el-tag> -->
+      <!-- <el-tag type="info">标签三</el-tag> -->
+    </div>
   </div>
   <div class="content">
-    <VueMarkdown :source="mdData" ></VueMarkdown>
+    <VueMarkdown :source="blog.content_md" ></VueMarkdown>
 
   </div>
   <div class="comment">
-       <!-- <show1></show1>
-    <comment-box :id="this.bolgId"></comment-box> -->
+       <show1></show1>
+    <comment-box :id="blog.blog_id"></comment-box>
   </div>
   <!-- <div class="favor"></div> -->
   <!-- 收藏 -->
   <!-- <div class="add"> </div> -->
-  
-  
 </div>
 
 </template>
 
 <script>
-import VueMarkdown from 'vue-markdown';
-// import comment from '../subcomponents/comment.vue'
-// import show1 from '../subcomponents/show1.vue'
+import VueMarkdown from 'vue-markdown'
+import comment from '../subcomponents/comment.vue'
+import show1 from '../subcomponents/show1.vue'
 // 这种方式引入 数据可直接使用
 // import markdownData from './test.md';
 export default {
-    
-   components: {
+  components: {
     VueMarkdown
     // 'comment-box': comment,
     // show1
-    
+  },
+  created() {
+    this.initBlog()
+    this.addBrowseNums()
+    this.str2list()
   },
   data() {
     return {
         blog:{
-            mdData: '# test',
-            browseNums: 0,
-            time:'2000-00-00',
-            title: '',
-            labels: '',
-            author: '',
-            blogId: ''
-        }
+            blog_id: 0,
+            created_at: "2020-04-11T18:56:33Z",
+            title: "测试用文章",
+            author_id: 0,
+            author_name: "admin",
+            content_html: "",
+            content_md: "## 测试",
+            labels:"tag tag tag",
+            read_times: 0,
+            star_times: 0,
+            thumbs_times: 0,
+            change_times: 0,
+            comments: null,
+            data_statistics: null
+        },
+        labels:['tag1','tag2']
     }
   },
   methods:{
       initBlog(){
           this.$http
-            .get('blog/getBlogById',{params:{blogId:this.$route.query.id}})
+            .get('blog/getBlog',{params:{blog_id:this.$route.query.id}})
             .then(
                 result => {
-                    this.blog = result.data.blog
+                    this.blog = result.data.project
           }
         )
+      },
+      str2list(){
+        // str = this.blog.labels
+
+        this.labels = this.blog.labels.split(' ')
       },
       addBrowseNums(){
           //后端数据库中browseNums字段自增
            this.$http
-          .post('blog/addBrowse',{blogId:this.blogId})
+          .post('blog/addBrowse',{blog_id:this.blog.blog_id})
           .then(result =>{
             console.log(result)
 
@@ -92,13 +106,9 @@ export default {
 </script>
 
 <style lang="less" scoped>
-
-
-
 .blog-container{
 width: 95%;
 height: 95%;
-
 .title{
     font-size: 28px;
     word-wrap: break-word;
@@ -110,11 +120,9 @@ height: 95%;
 
 }
 .info-box{
-    
     position: relative;
     background: #d6d6e4;
     border-radius: 4px;
-    
     .top-bar{
         padding: 10px;
         font-size: 20px;
@@ -128,9 +136,7 @@ height: 95%;
         .time{
             float:left;
             width: 33%;
-            
         }
-    
     }
 
     .labels{

@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div>
     <div class="blog_container">
@@ -6,7 +7,7 @@
       标题：
       <el-input placeholder="请输入文章标题" v-model="title" clearable></el-input>
       标签：
-      <el-input placeholder="请输入标签,以','分隔 " v-model="labels" clearable></el-input>
+      <el-input placeholder="请输入标签,以空格分隔 " v-model="labels" clearable></el-input>
     </div>
     <mavon-editor v-model="value" :ishljs="true" @save="saveMd" />
     <!-- <div class="button">
@@ -24,7 +25,7 @@ export default {
     return {
       md: '',
       title: '',
-      lables:''
+      labels:''
     }
   },
   methods: {
@@ -39,6 +40,7 @@ export default {
         labels: this.labels
       }
       console.log(newBlog)
+
       this.$http
         .post('blog/publishBlog', newBlog, {
           headers: {

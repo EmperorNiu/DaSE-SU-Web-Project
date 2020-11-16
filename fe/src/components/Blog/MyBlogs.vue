@@ -65,7 +65,7 @@ export default {
   methods: {
     initBlogList() {
       this.$http
-        .get('blog/getMyBlogList')
+        .get('blog/getMyBlogList',{userId: sessionStorage.getItem('user_id')})
         .then(result => {
           this.blogs = result.data.blogs
           // console.log(result)

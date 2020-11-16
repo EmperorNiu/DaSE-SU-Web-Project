@@ -5,15 +5,15 @@
       v-for="blogIntro in blogs"
       v-bind:key="blogIntro.blogId"
     >
-    <el-card class="box-card">
+      <el-card class="box-card">
         <div slot="header" class="clearfix">
           <span>{{ blogIntro.title }}</span>
-          <el-button style="float: right; padding: 3px 0" type="text" v-on:click="toDetail(blogIntro.blogId)">阅读</el-button>
+          <el-button style="float: right; padding: 3px 0" type="text" v-on:click="toDetail(blogIntro.blog_id)">阅读</el-button>
 
         </div>
         <div class="text item">
           <div class="author">作者：{{ blogIntro.author_name }}</div>
-          <div class="recommend">{{ blogIntro.introduction }}</div>
+          <div class="recommend">{{ blogIntro.labels }}</div>
           <div class="statistics">
             <div class="comment-num">收藏数：{{ blogIntro.star_times }}</div>
             <div class="view-num">观看人数： {{ blogIntro.read_times }}</div>
@@ -22,16 +22,15 @@
           </div>
         </div>
         <el-tooltip class="item" effect="dark" content="稍后浏览" placement="left-start">
-          <!-- TODO  -->
-          <!-- 添加到稍后浏览中, 应该加入的该博客的id -->
-        <el-button class="later-item" v-on:click="add(blogIntro.blogId)" type="primary" icon="el-icon-edit" circle></el-button>
-      </el-tooltip>
+            <!-- TODO  -->
+            <!-- 添加到稍后浏览中, 应该加入的该博客的id -->
+          <el-button class="later-item" v-on:click="add(blogIntro.blog_id)" type="primary" icon="el-icon-edit" circle></el-button>
+        </el-tooltip>
       </el-card>
     </div>
-  </div>
 <!-- 分页 -->
 <!-- 每页显示5篇 -->
-    <!-- <div style="float:left;margin:15px">
+    <div style="float:left;margin:15px">
 
     <el-switch v-model="value" style="margin-bottom:0px">
     </el-switch>
@@ -40,47 +39,27 @@
       :total="blogNums"
       layout="prev, pager, next">
     </el-pagination>
-    </div> -->
+    </div>
+  </div>
 </template>
 
-
 <script>
-// import viewBlog from './ViewBlog.vue'
 export default {
   created() {
-    // this.initBlogList()
-    // this.getBlogNums()
+    this.initBlogList()
+    this.getBlogNums()
     // this.blogs = this.blogs.concat(this.blogIntro)
-  }
-  ,
+  },
   data() {
     return {
       value: false,
-      blogs: [{
-        blogId: 0,
-        title: '深度学习优化器',
-        author_name: 'Dylan Niu',
-        introduction:
-          '随机梯度下降 SGD、动量 Momentum、Momentum+SGD算法、牛顿动量 Nesterov、Nesterov+SGD算法、AdaGrad',
-        star_times: 0,
-        read_times: 0,
-        thumbs_times: 0
-      },{
-        blogId: 0,
-        title: '深度学习优化器',
-        author_name: 'Dylan Niu',
-        introduction:
-          '随机梯度下降 SGD、动量 Momentum、Momentum+SGD算法、牛顿动量 Nesterov、Nesterov+SGD算法、AdaGrad',
-        star_times: 0,
-        read_times: 0,
-        thumbs_times: 0
-      },
+      blogs: [
       ],
       blogIntro: {
         blogId: 0,
         title: '深度学习优化器',
         author_name: 'Dylan Niu',
-        introduction:
+        labels:
           '随机梯度下降 SGD、动量 Momentum、Momentum+SGD算法、牛顿动量 Nesterov、Nesterov+SGD算法、AdaGrad',
         star_times: 0,
         read_times: 0,
@@ -92,7 +71,7 @@ export default {
   methods: {
     toDetail(blogId){
       
-    this.$router.push({path:'/viewblog',query:{blogId}})
+    this.$router.push({path:'/viewblog',query:{id:blogId}})
     },
     initBlogList() {
       this.$http
@@ -103,6 +82,8 @@ export default {
         })
         .then(result => {
           this.blogs = result.data.blogs
+          // console.log(result)
+          // eslint-disable-next-line handle-callback-err
         })
     },
     getBlogNums() {
@@ -122,8 +103,8 @@ export default {
     // 将blogID回传, 后端应该存入到该用户的某个数据库下
     // 在稍后看中从数据库中获取之前所存的博客
     add(value) {
-      this.$$http
-        .post('blog/watchLater', { blogId: value , userId: sessionStorage.getItem('user_id') })
+      this.$http
+        .post('blog/watchLater', { blog_id: value , userId: sessionStorage.getItem('user_id') })
         .then(result => {
           console.log(result)
         })

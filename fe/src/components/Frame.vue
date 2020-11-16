@@ -2,11 +2,10 @@
   <el-container class="home-container">
     <el-header height="80px">
       <!-- <div style="width:100%"> -->
-      <div class="left-part" style="margin-left:15px;">
-        <img src="../assets/logo.png" style="height:30px;width:30px;"/>
+      <div class="left-part">
+        <img src="../assets/logo.png" style="height:65px; width:65px">
         <span>DaSE SU</span>
       </div>
-
       <el-menu
         class="home-menu"
         mode="horizontal"
@@ -15,7 +14,9 @@
         active-text-color="#ffd04b"
         router
       >
-        <el-menu-item index="/home">Home</el-menu-item>
+        <el-menu-item index="/home">
+          Home
+        </el-menu-item>
         <el-submenu index="blog">
           <template slot="title">博客区</template>
           <el-menu-item index="/blog">看博客</el-menu-item>
@@ -24,25 +25,64 @@
           <el-menu-item index="/myblogs">我的博客</el-menu-item>
         </el-submenu>
         <el-submenu index="achievement">
-          <template slot="title">风采区</template>
-          <el-menu-item index="/projlist">项目展示</el-menu-item>
-          <el-menu-item index="/writeproj">写项目</el-menu-item>
-          <el-menu-item index="/memlist">校友会</el-menu-item>
+          <template slot="title">
+            风采区
+          </template>
+          <el-menu-item index="/projlist">
+            项目展示
+          </el-menu-item>
+          <el-menu-item index="/writeproj">
+            写项目
+          </el-menu-item>
+          <el-menu-item index="/myproject">
+            我的项目
+          </el-menu-item>
         </el-submenu>
-        <el-menu-item index="/activity">学生会活动</el-menu-item>
-        <el-menu-item index="/user">我的</el-menu-item>
+        <el-submenu index="/alumni">
+          <template slot="title">
+            校友会
+          </template>
+          <el-menu-item index="/graduatesgo">
+            毕业生去向
+          </el-menu-item>
+          <el-menu-item index="/graduatesjob">
+            毕业生展示
+          </el-menu-item>
+          <el-menu-item index="/mycareer">
+            填写我的发展
+          </el-menu-item>
+        </el-submenu>
+        <el-menu-item index="/activity">
+          学生会活动
+        </el-menu-item>
+        <el-menu-item index="/user">
+          我的
+        </el-menu-item>
         <el-submenu index="5">
-          <template slot="title">待开发</template>
-          <el-menu-item index="2-1">待开发</el-menu-item>
-          <el-menu-item index="2-3">待开发</el-menu-item>
-          <el-menu-item index="2-3">待开发</el-menu-item>
+          <template slot="title">
+            待开发
+          </template>
+          <el-menu-item index="2-1">
+            待开发
+          </el-menu-item>
+          <el-menu-item index="2-3">
+            待开发
+          </el-menu-item>
+          <el-menu-item index="2-3">
+            待开发
+          </el-menu-item>
         </el-submenu>
       </el-menu>
       <!-- </div> -->
     </el-header>
     <el-container>
       <el-aside :width="isCollapse ? '64px' : '200px'">
-        <div class="toggle-button" @click="toggleCollapse">|||</div>
+        <div
+          class="toggle-button"
+          @click="toggleCollapse"
+        >
+          |||
+        </div>
         <!-- 侧边栏菜单区域 -->
         <el-menu
           background-color="#333744"
@@ -55,13 +95,17 @@
           :default-active="activePath"
         >
           <!-- 一级菜单 -->
-          <el-submenu :index="item.id + ''" v-for="item in menulist" :key="item.id">
+          <el-submenu
+            v-for="item in menulist"
+            :key="item.id"
+            :index="item.id + ''"
+          >
             <!-- 一级菜单的模板区域 -->
             <template slot="title">
               <!-- 图标 -->
-              <i :class="iconsObj[item.id]"></i>
+              <i :class="iconsObj[item.id]" />
               <!-- 文本 -->
-              <span>{{item.authName}}</span>
+              <span>{{ item.authName }}</span>
             </template>
 
             <!-- 二级菜单 -->
@@ -80,7 +124,7 @@
         </el-menu>
       </el-aside>
       <el-main>
-        <router-view></router-view>
+        <router-view />
       </el-main>
     </el-container>
   </el-container>
