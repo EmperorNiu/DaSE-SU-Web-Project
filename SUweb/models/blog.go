@@ -69,12 +69,15 @@ func (blog *Blog) CreateBlog() error {
 	return db.Create(&blog).Error
 }
 
+func (blog *Blog) UpdateBlog() error {
+	return db.Update(&blog).Error
+}
 func QueryBlogComments(comments *[]BlogComment, project_id string) error {
 	return db.Where("blog_id = ?", project_id).Find(&comments).Error
 }
 
-func QueryWatchLater(wls *[]WatchLater,user_id string) error{
-	return db.Where("user_id = ?",user_id).Find(&wls).Error
+func QueryWatchLater(wls *[]WatchLater, user_id string) error {
+	return db.Where("user_id = ?", user_id).Find(&wls).Error
 }
 
 func QueryBlogNums() int64 {

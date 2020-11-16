@@ -43,6 +43,7 @@ func InitRouter() *gin.Engine {
 		blog.GET("getBlogNums", controlers.GetBlogNums)
 		blog.GET("getMyBlogList", controlers.GetMyBlogList)
 		blog.GET("getWatchLaterList", controlers.GetWathLaterList)
+		blog.POST("addBrowse",controlers.AddBrowse)
 	}
 	achievement := router.Group("/api/achievement")
 	{

@@ -104,3 +104,20 @@ func GetWathLaterList(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"blogs":blogs})
  	}
 }
+
+func AddBrowse(c *gin.Context){
+	var blogId string
+	var blog models.Blog
+	if err := c.ShouldBindHeader(&blogId); err != nil {
+		c.JSON(http.StatusUnauthorized, gin.H{"status": e.ERROR_NOT_LOGIN, "message": e.GetMsg(e.ERROR_NOT_LOGIN)})
+	}else if err:= blog.QueryBlog(blogId);err!=nil{
+		c.JSON(http.StatusBadRequest, gin.H{"status": e.INVALID_PARAMS, "message": e.GetMsg(e.INVALID_PARAMS)})
+	}else {
+		blog.ReadTimes = blog.ReadTimes+1
+		if err:=blog.UpdateBlog();err!=nil{
+			c.JSON(http.StatusBadRequest, gin.H{"status": e.INVALID_PARAMS, "message": e.GetMsg(e.INVALID_PARAMS)})
+		}else {
+			c.JSON(http.StatusOK,gin.H{"message":"ok"})
+		}
+	}
+}
