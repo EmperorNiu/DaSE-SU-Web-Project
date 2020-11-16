@@ -34,8 +34,11 @@ const routes = [
     component: Frame,
     redirect: '/home',
     children: [
+      { path: '/testViewBlog',component: ViewBlog}, 
+      { path: '/viewblog',component: ViewBlog}, 
+      
+      // { path: '/home', component: Home },
       { path: '/home', component: Calendar },
-      { path: '/testViewBlog', component: ViewBlog },
       { path: '/blog', component: BlogIntro },
       { path: '/writeblog', component: WriteBlog },
       { path: '/playlist', component: WatchLater },
@@ -61,11 +64,20 @@ const router = new VueRouter({
 })
 
 // 路由导航守卫
+<<<<<<< HEAD
 // router.beforeEach((to, from, next) => {
 //   if (to.path === '/login') return next()
 //   const token = window.sessionStorage.getItem('token')
 //   if (!token) return next('/login')
 //   next()
 // })
+=======
+router.beforeEach((to, from, next) => {
+  if (to.path === '/login') return next()
+  const token = window.sessionStorage.getItem('token')
+  if (!token) return next('/login')
+  next()
+})
+>>>>>>> blog
 
 export default router
