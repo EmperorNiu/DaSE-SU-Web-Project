@@ -53,10 +53,6 @@ Vue.use(CarouselItem)
 // Vue.use(Notification)
 Vue.use(Alert)
 Vue.use(Link)
-<<<<<<< HEAD
-
-=======
 Vue.use(Tooltip)
->>>>>>> 6b49027ccc746466779c0ba4a4d1aaf013815cd9
 Vue.prototype.$message = Message
 Vue.prototype.$notify = Notification

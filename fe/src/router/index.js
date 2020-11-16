@@ -64,20 +64,11 @@ const router = new VueRouter({
 })
 
 // 路由导航守卫
-<<<<<<< HEAD
-// router.beforeEach((to, from, next) => {
-//   if (to.path === '/login') return next()
-//   const token = window.sessionStorage.getItem('token')
-//   if (!token) return next('/login')
-//   next()
-// })
-=======
 router.beforeEach((to, from, next) => {
   if (to.path === '/login') return next()
   const token = window.sessionStorage.getItem('token')
   if (!token) return next('/login')
   next()
 })
->>>>>>> blog
 
 export default router

@@ -3,7 +3,7 @@
     <div
       class="blog-intro-container"
       v-for="blogIntro in blogs"
-      v-bind:key="blogIntro.blogId"
+      v-bind:key="blogIntro.blog_id"
     >
     <el-card class="box-card">
         <div slot="header" class="clearfix">
@@ -15,7 +15,7 @@
         </div>
         <div class="text item">
           <div class="author">作者：{{ blogIntro.author_name }}</div>
-          <div class="recommend">{{ blogIntro.introduction }}</div>
+          <div class="recommend">{{ blogIntro.labels }}</div>
           <div class="statistics">
             <div class="comment-num">收藏数：{{ blogIntro.star_times }}</div>
             <div class="view-num">观看人数： {{ blogIntro.read_times }}</div>
@@ -26,7 +26,7 @@
       </el-card>
     </div>
 <!-- 分页 -->
-    <!-- <div style="float:left;margin:15px">
+    <div style="float:left;margin:15px">
     <el-switch v-model="value" style="margin-bottom:0px">
     </el-switch>
     <el-pagination
@@ -35,7 +35,7 @@
       layout="prev, pager, next">
     </el-pagination>
     </div>
-     -->
+    
   </div>
 </template>
 
@@ -67,7 +67,7 @@ export default {
       this.$http
         .get('blog/getMyBlogList',{userId: sessionStorage.getItem('user_id')})
         .then(result => {
-          this.blogs = result.data.blogs
+          this.blogs = result.data.blogs  
           // console.log(result)
           // eslint-disable-next-line handle-callback-err
         })

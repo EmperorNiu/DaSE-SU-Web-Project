@@ -3,7 +3,7 @@
     <div
       class="blog-intro-container"
       v-for="blogIntro in blogs"
-      v-bind:key="blogIntro.blogId"
+      v-bind:key="blogIntro.blog_id"
     >
       <el-card class="box-card">
         <div slot="header" class="clearfix">
@@ -104,7 +104,7 @@ export default {
     // 在稍后看中从数据库中获取之前所存的博客
     add(value) {
       this.$http
-        .post('blog/watchLater', { blog_id: value , userId: sessionStorage.getItem('user_id') })
+        .post('blog/watchLater', { blogId: value , userId: sessionStorage.getItem('user_id') })
         .then(result => {
           console.log(result)
         })
