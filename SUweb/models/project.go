@@ -53,9 +53,9 @@ func QueryProjectList(projects *[]Project) error {
 }
 
 func (project *Project) Create() error {
-	if db.Where("project_name = ?",project.ProjectName).Error!=nil {
+	if project.ProjectId != 0 && db.Where("project_id = ?", project.ProjectId).Error != nil {
 		return db.Update(project).Error
-	}else {
+	} else {
 		return db.Create(&project).Error
 	}
 }
