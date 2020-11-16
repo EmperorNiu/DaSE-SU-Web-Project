@@ -75,3 +75,14 @@ func GetComments(c *gin.Context) {
 		c.JSON(http.StatusOK, gin.H{"message": "success", "comments": comments})
 	}
 }
+
+func UpdateProject(c *gin.Context) {
+	var project models.Project
+	if err := c.ShouldBindJSON(&project); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"status": e.INVALID_PARAMS, "message": e.GetMsg(e.INVALID_PARAMS)})
+	} else if err := project.Update(); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"status": e.INVALID_PARAMS, "message": e.GetMsg(e.INVALID_PARAMS)})
+	}else {
+		c.JSON(http.StatusOK,gin.H{"message":"ok"})
+	}
+}

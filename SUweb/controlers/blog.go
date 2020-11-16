@@ -32,6 +32,17 @@ func GetBlog(c *gin.Context) {
 	}
 }
 
+func UpdateBlog(c *gin.Context) {
+	var blog models.Blog
+	if err := c.ShouldBindJSON(&blog); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"status": e.INVALID_PARAMS, "message": e.GetMsg(e.INVALID_PARAMS)})
+	} else if err := blog.UpdateBlog(); err != nil {
+		c.JSON(http.StatusBadRequest, gin.H{"status": e.INVALID_PARAMS, "message": e.GetMsg(e.INVALID_PARAMS)})
+	}else {
+		c.JSON(http.StatusOK,gin.H{"message":"ok"})
+	}
+}
+
 func PublishBlog(c *gin.Context) {
 	var blog models.Blog
 	var token models.Token
@@ -95,29 +106,29 @@ func GetWathLaterList(c *gin.Context) {
 	var blogs []models.Blog
 	if err := models.QueryWatchLater(&wls, userid); err != nil {
 		c.JSON(http.StatusBadGateway, gin.H{"status": e.ERROR_EXIST_NAME, "message": e.GetMsg(e.ERROR_EXIST_NAME)})
-	}else {
-		for _,wl := range wls{
+	} else {
+		for _, wl := range wls {
 			var blog models.Blog
 			blog.QueryBlog(strconv.Itoa(int(wl.BlogId)))
 			blogs = append(blogs, blog)
 		}
-		c.JSON(http.StatusOK, gin.H{"blogs":blogs})
- 	}
+		c.JSON(http.StatusOK, gin.H{"blogs": blogs})
+	}
 }
 
-func AddBrowse(c *gin.Context){
+func AddBrowse(c *gin.Context) {
 	var blogId string
 	var blog models.Blog
 	if err := c.ShouldBindHeader(&blogId); err != nil {
 		c.JSON(http.StatusUnauthorized, gin.H{"status": e.ERROR_NOT_LOGIN, "message": e.GetMsg(e.ERROR_NOT_LOGIN)})
-	}else if err:= blog.QueryBlog(blogId);err!=nil{
+	} else if err := blog.QueryBlog(blogId); err != nil {
 		c.JSON(http.StatusBadRequest, gin.H{"status": e.INVALID_PARAMS, "message": e.GetMsg(e.INVALID_PARAMS)})
-	}else {
-		blog.ReadTimes = blog.ReadTimes+1
-		if err:=blog.UpdateBlog();err!=nil{
+	} else {
+		blog.ReadTimes = blog.ReadTimes + 1
+		if err := blog.UpdateBlog(); err != nil {
 			c.JSON(http.StatusBadRequest, gin.H{"status": e.INVALID_PARAMS, "message": e.GetMsg(e.INVALID_PARAMS)})
-		}else {
-			c.JSON(http.StatusOK,gin.H{"message":"ok"})
+		} else {
+			c.JSON(http.StatusOK, gin.H{"message": "ok"})
 		}
 	}
 }

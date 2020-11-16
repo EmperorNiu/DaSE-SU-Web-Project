@@ -26,6 +26,7 @@ func InitRouter() *gin.Engine {
 		project.GET("/getProject", controlers.GetProject)
 		project.POST("/comment", controlers.CommentProject)
 		project.GET("/getcomments", controlers.GetComments)
+		project.PUT("/updateProject",controlers.UpdateProject)
 	}
 	alumni := router.Group("/api/alumni")
 	{
@@ -57,10 +58,9 @@ func InitRouter() *gin.Engine {
 func cors() gin.HandlerFunc {
 	return func(c *gin.Context) {
 		method := c.Request.Method
-
 		c.Header("Access-Control-Allow-Origin", "*")
 		c.Header("Access-Control-Allow-Headers", "Content-Type,AccessToken,X-CSRF-Token, Authorization, Token")
-		c.Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS")
+		c.Header("Access-Control-Allow-Methods", "POST, GET, OPTIONS, PUT")
 		c.Header("Access-Control-Expose-Headers", "Content-Length, Access-Control-Allow-Origin, Access-Control-Allow-Headers, Content-Type")
 		c.Header("Access-Control-Allow-Credentials", "true")
 		if method == "OPTIONS" {
