@@ -5,16 +5,17 @@
       <el-header class="th">
         项目负责人：{{ projinfo.project_leader }}
       </el-header>
-      <el-container>
-        <el-main>
-          {{ projinfo.ProjectDescription }}
-          <el-button
+      <el-header>
+        <el-button
             type="primary"
             @click="Download(projinfo.url)"
           >
             下载
           </el-button>
-          <!-- <el-link href={{ projinfo.url }}>下载链接</el-link> -->
+      </el-header>
+      <el-container>
+        <el-main>
+          <div class="divcss555">{{ projinfo.ProjectDescription }}</div>
         </el-main>
       </el-container>
     </el-container>
@@ -45,7 +46,7 @@ export default {
         console.log(result)
         if (result.data.message === 'success') {
           this.projinfo = result.data.project
-          // console.log(this.projinfo.project_name)
+          console.log(this.projinfo)
         } else {
           // Toast('获取项目失败！')
         }
@@ -128,8 +129,13 @@ export default {
 .el-main {
     background-color: #E9EEF3;
     color: #333;
-    text-align: center;
-    line-height: 160px;
+    text-align: left;
+    line-height: 1.5;
+    font-size: 20px;
+    white-space: pre-line;
+    text-indent: 2em;
+    // padding-left:25px; 
+    // text-indent:-25px;
   }
   .el-aside {
     background-color: #D3DCE6;
@@ -139,4 +145,11 @@ export default {
     font-size: 50px;
     font-weight: 600;
   }
+.divcss555 {
+            // border: 1px solid #F00;
+            // width: 600px;
+            // height: 100px;
+            word-break: break-all;
+        } 
+
 </style>
